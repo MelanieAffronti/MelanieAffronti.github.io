@@ -1,0 +1,762 @@
+/* Reset para limpiar márgenes automáticos del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; 
+    background-color: #e4e4e4; /* El gris clarito de tu fondo */
+}
+
+/* ====================================
+   1. BARRA SUPERIOR (HEADER)
+   ==================================== */
+.header-principal {
+    display: flex;
+    justify-content: space-between; /* Empuja el logo a la izq y el usuario a la der */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #1c6758; /* Verde SEC */
+    color: white;
+    padding: 2px 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+
+}
+
+.logo-container img {
+    height: 90px; /* Ajustá este número según el tamaño de tu logo */
+}
+
+.logo-container p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user-logout {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+}
+
+.user-logout img {
+    height: 24px;
+    cursor: pointer;
+}
+/* ====================================
+   2. MENÚ DE NAVEGACIÓN (NAV) - LENGÜETAS COLUMNA
+   ==================================== */
+
+.menu-principal {
+    background-color: #f5f5f5; /* Fondo gris claro de la barra */
+    padding: 0px 100px; /* Margen interno que vos definiste */
+    height: 90px; /* Altura de la barra para que entren el ícono de 70px y el texto */
+    display: flex;
+}
+
+.menu-principal ul {
+    list-style: none; /* Saca los puntitos de la lista */
+    display: flex;
+    gap: 20px; /* Separación gigante entre botones como en tu diseño */
+    align-items: flex-start; /* Pega los botones al techo de la barra */
+    height: 100%;
+}
+
+/* ESTADO NORMAL (Inactivo) */
+.menu-principal a {
+    text-decoration: none; /* Saca el subrayado azul feo */
+    color: #747474; /* Color gris para los inactivos */
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column; /* Pone texto abajo del ícono */
+    align-items: center;
+    justify-content: center;
+    
+    /* Configuración de la caja/lengüeta */
+    height: 95px; /* Ocupa exactamente el mismo alto que la barra gris */
+    padding: 0 35px; /* Un poco de aire a los costados del texto/ícono */
+    border-radius: 0 0 15px 15px; /* Redondea solo las puntas de abajo */
+    transition: all 0.4s ease; /* Transición suave */
+    gap: 9px
+}
+
+/* ESTILO DE ÍCONOS INACTIVOS */
+.menu-principal a img {
+    height: 35px; /* Tu tamaño de ícono */
+
+    filter: grayscale(100%) opacity(50%); /* Hace que el ícono se vea gris y medio apagado */
+    transition: all 0.2s ease;
+}
+
+/* ====================================
+   ESTADO ACTIVO (La pestaña que cuelga)
+   ==================================== */
+.menu-principal a.activo {
+    color: #1c6758; /* Texto verde */
+    font-weight: 700;
+    background-color: #f5f5f5; /* Caja 
+    
+    /* LA MAGIA DEL HUNDIMIENTO */
+    height: 125px; /* Más alta que la barra (120px) para que sobresalga hacia abajo */
+    
+}
+
+/* Le devuelve el color original al ícono activo */
+.menu-principal a.activo img {
+    filter:none
+}
+
+
+
+/* HASTA ACA ES EL MENÚ */
+
+.contenedor-principal {
+    display: flex;       /* Los pone uno al lado del otro */
+    justify-content: center;
+    gap: 40px;           /* Separación entre la tarjeta y el calendario */
+    padding: 40px;       /* Un poco de aire general contra los bordes de la pantalla */
+    align-items: flex-start; /* Evita que la tarjeta se estire verticalmente para igualar al calendario */
+}
+
+/*ACA LA TARJETA DE INFO PERSONAL*/
+
+/* Tarjeta Principal */
+.tarjeta-personal {
+    margin: 60px;
+    width: 513px;
+    height: 300px;
+    background-color: #fbfbfb;
+    border-radius: 30px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    display: flex; /* Flexbox para alinear foto y datos */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    position: relative
+}
+
+/* Lista de datos */
+.datos-lista { list-style: none; margin-top: 10px;  
+}
+.destacado { color: #1c6758; font-weight: 600; }
+
+/* Contenedor de iconos (Estadísticas) */
+.contenedor-stats {
+    display: flex;
+    gap: 90px;
+    align-items: center;
+    margin-left: 50px
+    ;
+}
+.numero-stat {
+     text-decoration: none; /* Saca el subrayado azul feo */
+    color: #464444; /* Color gris para los inactivos */
+    font-weight: 600;
+    font-size: 45px;
+font-family: 'open sans';
+}
+/* El ícono y su efecto */
+.stat-item { position: relative; cursor: pointer; 
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+.icono-stat {
+    height: 30px;
+    filter: grayscale(100%) opacity(50%); /* Gris apagado por defecto */
+    transition: all 0.3s;
+}
+
+.stat-item:hover .icono-stat {
+    filter: none
+}
+
+/* Tooltip (El cartelito) - La magia CSS */
+.stat-item::after {
+    content: attr(data-tooltip); /* Lee el texto de "data-tooltip" del HTML */
+    position: absolute;
+    bottom: 110%; /* Lo pone arriba del ícono */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    visibility: hidden; /* Invisible por defecto */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Mostrar tooltip al pasar el mouse */
+.stat-item:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+/**CALENDARIO/
+
+/* ====================================
+   MÓDULO CALENDARIO
+   ==================================== */
+.calendario-contenedor {
+    margin-top: 60px;
+    width: 594px;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 0px 6px 40px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    font-family: 'open sans', sans-serif;
+    color: #282828;
+
+}
+
+/* Filtros Superiores */
+.calendario-filtros {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    margin-left: 25%
+}
+
+.calendario-filtros select {
+    background-color: #f0f0f0;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'open sans', sans-serif;
+}
+
+/* Título del Mes */
+.titulo-mes {
+    text-align: center;
+    font-size: 20px;
+    color: #343434;
+    margin-bottom: 20px;
+}
+.header-mes {
+    display: flex;
+    justify-content: space-between; /* Tira las flechas a las puntas y el texto al centro */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.titulo-mes {
+    margin: 0; /* Le sacamos el margen porque ahora lo maneja el header-mes */
+}
+
+.btn-flecha {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #343434;
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+.btn-flecha:hover {
+    color: #1c6758; /* Se pone verde al pasar el mouse */
+}
+/* Grilla de días de la semana (Lun, Mar, Mie...) */
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales */
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+/* Grilla de los números (Inyectados por JS) */
+.grilla-dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px; /* Separación entre los cuadraditos */
+}
+
+/* Estilo de cada cuadradito de día */
+.dia-caja {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #131516;
+}
+
+/* Días vacíos (para rellenar los huecos al principio del mes) */
+.dia-vacio {
+    background-color: transparent;
+}
+
+/* EL DÍA MARCADO CON EVENTO (El cuadradito rojo de tu diseño) */
+.dia-con-evento {
+    background-color: #e86969; /* Rojo */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(232, 105, 105, 0.4);
+}
+
+/* Separador visual */
+.separador {
+    border: none;
+    border-top: 2px solid #d9d9d9;
+    margin: 30px 0;
+}
+
+/* ====================================
+   LISTA DE EVENTOS
+   ==================================== */
+.lista-eventos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.evento-item {
+    background-color: #fbfbfb;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.estado-etiqueta {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.completo { background-color: #989898; color: #ffffff; 
+margin-top: 10px;}
+.abierto { background-color: #1ac66d; color: white; margin-top: 10px;}
+.finalizado { background-color: #454545; color: white; margin-top: 10px;}
+
+.evento-titulo {
+    color: #1c6758;
+    margin: 20px 0 5px 0;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.evento-info p {
+    margin: 3px 0;
+    font-size: 13px;
+    color: #747474;
+}
+
+.dia-evento {
+    color: #464444; /* Color gris para los inactivos */
+    font-weight: 600;
+    font-size: 35px;
+font-family: 'open sans';
+}
+.columna-fecha {
+    display: flex;
+    flex-direction: column; /* Esto es la clave: pone uno arriba del otro */
+    align-items: center;    /* Centra el número y el cartelito */
+    justify-content: center;
+    width: 80px;            /* Le damos un ancho fijo para que quede ordenado */
+    flex-shrink: 0;         /* Evita que se achique si el texto es muy largo */
+}
+
+/* Ajuste para que el cartel no tenga margen arriba si lo estamos apilando */
+.estado-etiqueta {
+    margin-top: 5px; /* Un poquito de aire nada más */
+}
+/* ====================================
+   MODAL / POPUP DE EVENTOS
+   ==================================== */
+
+/* El fondo oscuro translúcido */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Oscurece el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que quede por encima de todo */
+}
+
+/* La tarjeta blanca */
+.modal-contenido {
+    background-color: #fbfbfb;
+
+    width: 800px;
+    max-width: 90%;
+    max-height: 90vh; /* Para que no se pase de la pantalla */
+    overflow-y: auto; /* Si hay mucho texto, se puede scrollear adentro */
+    padding: 30px;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    color: #282828;
+}
+
+/* Botón de cerrar */
+.btn-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #747474;
+}
+
+/* Dividimos en dos columnas */
+.modal-columnas {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.col-info, .col-inscriptos {
+    flex: 1; /* Ocupan mitad y mitad */
+}
+
+.modal-columnas h3 {
+    border-bottom: 2px solid #d9d9d9;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #1e1e1e;
+}
+
+.col-info p {
+    margin: 5px 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* --- ESTILOS DEL MAPA --- */
+.link-mapa {
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-mapa {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: filter 0.3s;
+}
+
+.link-mapa:hover .img-mapa {
+    filter: brightness(0.8); /* Se oscurece un poco al pasar el mouse */
+}
+
+.click-ver {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.link-mapa:hover .click-ver {
+    opacity: 1; /* Aparece el cartelito de click */
+}
+
+/* --- LISTA DE PERSONAS --- */
+.lista-personas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+
+.persona-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.rol-encargado { font-weight: bold; color: #1c6758; }
+.rol-voluntario { color: #747474; }
+.rol-suplente { color: #a6a6a6; font-style: italic; }
+
+.rol-grupo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- EL TOOLTIP DEL TELÉFONO --- */
+.icono-info {
+    cursor: pointer;
+    position: relative;
+}
+
+.icono-info::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%;
+    right: 0;
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.icono-info:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+.mapa-google {
+    width: 100%;   /* Ocupa el 100% del ancho del recuadro que le preparaste en el modal */
+    height: 250px; /* Dale la altura que quieras, 250px suele quedar bien */
+    border-radius: 10px; /* Para que las puntas queden redondeadas y no tan "cuadradas" */
+}
+
+/* Definimos la animación */
+@keyframes deslizarDesdeArriba {
+    0% {
+        transform: translateY(-50px); /* Empieza 50px más arriba */
+        opacity: 0;                   /* Invisible al inicio */
+    }
+    100% {
+        transform: translateY(0);     /* Termina en su lugar original */
+        opacity: 1;                   /* Totalmente visible */
+    }
+}
+
+/* Aplicamos la animación a tu contenedor principal */
+.contenedor-principal {
+    /* Llamamos a la animación, le damos 0.8 segundos y 'ease-out' para que frene suave */
+    animation: deslizarDesdeArriba 0.8s ease-out; 
+}
+.modal-contenido { animation: deslizarDesdeArriba 0.8s ease-out; }
+
+/* ====================================
+   TARJETA PRÓXIMA ACTIVIDAD
+   ==================================== */
+
+/* Contenedor principal de la tarjeta blanca */
+.tarjeta-proxima-actividad {
+    background-color: #fbfbfb;
+    border-radius: 20px;
+    padding: 25px;
+
+    display: flex;           /* Pone el cuadrado verde y los textos en fila */
+    align-items: center;     /* Los centra verticalmente */
+    gap: 20px;               /* Separación entre el cuadrado y los textos */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05); /* Sombrita suave */
+    width: fit-content;      /* Se ajusta al tamaño de su contenido */
+    margin-top: -670px; /* Probá con este número y ajustalo */
+    position: relative; /* Esto le avisa que se va a mover un poquito */
+margin-left: 185px;
+width: 520px;
+}
+
+/* El cuadrado verde de la fecha */
+.fecha-destacada {
+    background-color: #1c6758;
+    color: white;
+    display: flex;
+    flex-direction: column;  /* Pone el número arriba del mes */
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;     /* Bordes bien redondeados como en tu diseño */
+    flex-shrink: 0;          /* Evita que se achique */
+}
+
+.dia-numero {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;          /* Quita el espacio extra arriba y abajo del número */
+}
+
+.mes-texto {
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* El contenedor de los textos */
+.info-actividad {
+    display: flex;
+    flex-direction: column;  /* Apila los textos en columna */
+    gap: 5px;                /* Separación entre cada renglón */
+}
+
+.titulo-actividad {
+    color: #1c6758;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    letter-spacing: 0.5px;
+}
+
+.detalle-actividad {
+    margin: 0;
+    font-size: 15px;
+    color: #343434;
+}
+
+/* El botón de "Ver más" */
+.btn-ver-mas {
+    background-color: #1c6758;
+    color: white;
+    border: none;
+    border-radius: 20px;     /* Forma de pastilla */
+    padding: 8px 25px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;         /* Un poquito de aire arriba del botón */
+    align-self: flex-start;  /* Lo tira hacia la izquierda */
+    transition: background-color 0.3s ease;
+
+}
+
+.btn-ver-mas:hover {
+    background-color: #145044; /* Verde un poco más oscuro al pasar el mouse */
+}
+
+/* ====================================
+   TARJETA CAPACITACIONES
+   ==================================== */
+
+.tarjeta-capacitaciones {
+    background-color: #fbfbfb;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 35px;
+    margin-left: 185px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    width: 520px; /* Se adapta perfectamente al ancho de la columna izquierda */
+    box-sizing: border-box; 
+}
+
+.titulo-capacitaciones {
+    color: #1c6758;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* La lista de cursos con tildes */
+.lista-cursos {
+    list-style: none; /* Le saca los puntitos feos a la lista */
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.curso-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #343434;
+    font-weight: 500;
+}
+
+.texto-optativos {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    line-height: 1.4;
+    margin-left: 20px;
+
+}
+
+/* Botón blanco */
+.btn-cursos {
+    background-color: #1c6758;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-left: 190px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-cursos:hover {
+    background-color: #e4e4e4; /* Gris clarito al pasar el mouse */
+}
+
+/*ACA REESCRIBI TODO EN COLUMNAS, ASIQUE SEGURAMENTE EN LOS ANTERIORES HAYA ESCRITO MUCHO A LO TONTO, IGNOREMOSLO OK*/
+
+/* 1. Configuramos la caja madre para que centre todo */
+.contenedor-principal { 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Para que las columnas no se estiren solas */
+    gap: 40px;               /* Separación perfecta entre columna izq y der */
+    padding: 40px;
+    max-width: 1200px;       /* Evita que se estire al infinito en teles o monitores gigantes */
+    margin: 0 auto;
+}
+
+/* 2. Reglas para la columna izquierda */
+.columna-izquierda {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;               /* Separación automática entre las 3 tarjetas */
+    width: 520px;            /* Obligamos a que TODO el lado izquierdo mida exactamente esto */
+}
+
+/* 3. Reglas para la columna derecha */
+.columna-derecha {
+    width: 594px;            /* El ancho que vos le habías dado al calendario */
+}
+
+/* 4. LIMPIEZA DE TARJETAS (LA CLAVE DEL ARREGLO) */
+/* Le decimos a todas las tarjetas que respeten el ancho de su columna y anulamos los márgenes fijos que las rompían */
+.tarjeta-personal, 
+.tarjeta-proxima-actividad, 
+.tarjeta-capacitaciones,
+.calendario-contenedor {
+    width: 100% !important; /* Que ocupen exactamente el ancho de la columna donde están */
+    margin: 0 !important;   /* Anula el margin: 60px y margin-left: 185px que tenías antes */
+    box-sizing: border-box; /* Evita que el padding las haga más anchas */
+}
