@@ -1,0 +1,369 @@
+/* Reset para limpiar márgenes automáticos del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; 
+    background-color: #e4e4e4; /* El gris clarito de tu fondo */
+}
+
+/* ====================================
+   1. BARRA SUPERIOR (HEADER)
+   ==================================== */
+.header-principal {
+    display: flex;
+    justify-content: space-between; /* Empuja el logo a la izq y el usuario a la der */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #1c6758; /* Verde SEC */
+    color: white;
+    padding: 2px 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+
+}
+
+.logo-container img {
+    height: 90px; /* Ajustá este número según el tamaño de tu logo */
+}
+
+.logo-container p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user-logout {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+}
+
+.user-logout img {
+    height: 24px;
+    cursor: pointer;
+}
+/* ====================================
+   2. MENÚ DE NAVEGACIÓN (NAV) - LENGÜETAS COLUMNA
+   ==================================== */
+
+.menu-principal {
+    background-color: #f5f5f5; /* Fondo gris claro de la barra */
+    padding: 0px 100px; /* Margen interno que vos definiste */
+    height: 90px; /* Altura de la barra para que entren el ícono de 70px y el texto */
+    display: flex;
+}
+
+.menu-principal ul {
+    list-style: none; /* Saca los puntitos de la lista */
+    display: flex;
+    gap: 20px; /* Separación gigante entre botones como en tu diseño */
+    align-items: flex-start; /* Pega los botones al techo de la barra */
+    height: 100%;
+}
+
+/* ESTADO NORMAL (Inactivo) */
+.menu-principal a {
+    text-decoration: none; /* Saca el subrayado azul feo */
+    color: #747474; /* Color gris para los inactivos */
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column; /* Pone texto abajo del ícono */
+    align-items: center;
+    justify-content: center;
+    
+    /* Configuración de la caja/lengüeta */
+    height: 95px; /* Ocupa exactamente el mismo alto que la barra gris */
+    padding: 0 35px; /* Un poco de aire a los costados del texto/ícono */
+    border-radius: 0 0 15px 15px; /* Redondea solo las puntas de abajo */
+    transition: all 0.4s ease; /* Transición suave */
+    gap: 9px
+}
+
+/* ESTILO DE ÍCONOS INACTIVOS */
+.menu-principal a img {
+    height: 35px; /* Tu tamaño de ícono */
+
+    filter: grayscale(100%) opacity(50%); /* Hace que el ícono se vea gris y medio apagado */
+    transition: all 0.2s ease;
+}
+
+/* ====================================
+   ESTADO ACTIVO (La pestaña que cuelga)
+   ==================================== */
+.menu-principal a.activo {
+    color: #1c6758; /* Texto verde */
+    font-weight: 700;
+    background-color: #f5f5f5; /* Caja 
+    
+    /* LA MAGIA DEL HUNDIMIENTO */
+    height: 125px; /* Más alta que la barra (120px) para que sobresalga hacia abajo */
+    
+}
+
+/* Le devuelve el color original al ícono activo */
+.menu-principal a.activo img {
+    filter:none
+}
+
+
+
+/* HASTA ACA ES EL MENÚ */
+
+/* ====================================
+   ESTRUCTURA GENERAL Y SCROLL SUAVE
+   ==================================== */
+html {
+    /* ESTO ES LA MAGIA DEL EFECTO: Baja suave en lugar de saltar de golpe */
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #e4e4e4; /* Un gris un toque más oscurito que las cajas para dar contraste */
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    color: #1c6758; /* Verde corporativo por defecto */
+}
+
+.contenedor-ayuda {
+    flex: 1; /* Pega el footer abajo */
+    width: 1000px;
+    max-width: 90%;
+    margin: 0 auto; /* Centra todo */
+    padding-bottom: 80px;
+}
+
+/* ====================================
+   HERO: ¿QUÉ ESTÁS BUSCANDO?
+   ==================================== */
+.ayuda-hero {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+.titulo-ayuda {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.ayuda-botones {
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* Distancia entre los botones redondos */
+    margin-bottom: 60px;
+}
+
+/* Botones de Anclaje */
+.btn-ancla {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+.btn-ancla:hover {
+    transform: translateY(-5px); /* Se levantan un poquito al pasar el mouse */
+}
+
+.circulo-icono {
+    background-color: #f6f6f6;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo-icono img {
+    width: 60px;
+}
+
+.etiqueta-verde {
+    background-color: #1c6758;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.icono-separador {
+    width: 40px;
+    opacity: 0.8;
+}
+
+/* ====================================
+   SECCIONES Y ACORDEONES (Preguntas/Reglas)
+   ==================================== */
+.seccion-contenido {
+    margin-bottom: 60px;
+    /* Al hacer scroll suave, esto evita que el header tape el título */
+    scroll-margin-top: 100px; 
+}
+
+.titulo-seccion {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.acordeon-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los bloques blancos */
+}
+
+.acordeon-item {
+    background-color: #f6f6f6;
+    padding: 20px 30px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s;
+}
+
+.acordeon-item:hover {
+    background-color: #ffffff; /* Brilla al pasar el mouse */
+}
+
+.acordeon-item span {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1c6758;
+}
+
+.acordeon-item img {
+    width: 16px;
+    transition: transform 0.3s;
+}
+
+/* ====================================
+   CAJA DE CONTACTOS (Columnas)
+   ==================================== */
+.caja-contactos {
+    background-color: #f6f6f6;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    gap: 40px; /* Separación entre la columna izq y der */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.columna-contacto {
+    flex: 1; /* Mitad para cada columna */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Separación entre un contacto y otro en vertical */
+}
+
+.item-contacto h4 {
+    color: #2e2e2e;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.item-contacto p {
+    color: #2e2e2e;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 5px 0;
+}
+
+.item-contacto .bold {
+    font-weight: 600;
+}
+
+.caja-formulario {
+    background-color: #f6f6f6;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.desc-formulario {
+    margin-bottom: 25px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.fila-form {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.campo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1c6758;
+}
+
+.campo input, .campo textarea {
+    padding: 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-enviar {
+    margin-top: 20px;
+    background-color: #1c6758;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-enviar:hover {
+    background-color: #154d42;
+}
+
+
+/* Definimos la animación */
+@keyframes deslizarDesdeArriba {
+    0% {
+        transform: translateY(-50px); /* Empieza 50px más arriba */
+        opacity: 0;                   /* Invisible al inicio */
+    }
+    100% {
+        transform: translateY(0);     /* Termina en su lugar original */
+        opacity: 1;                   /* Totalmente visible */
+    }
+}
+
+/* Aplicamos la animación a tu contenedor principal */
+.contenedor-ayuda {
+    /* Llamamos a la animación, le damos 0.8 segundos y 'ease-out' para que frene suave */
+    animation: deslizarDesdeArriba 0.8s ease-out; 
+}
+.modal-contenido { animation: deslizarDesdeArriba 0.8s ease-out; }

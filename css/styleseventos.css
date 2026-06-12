@@ -1,0 +1,561 @@
+/* Reset para limpiar márgenes automáticos del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; 
+    background-color: #e4e4e4; /* El gris clarito de tu fondo */
+}
+
+/* ====================================
+   1. BARRA SUPERIOR (HEADER)
+   ==================================== */
+.header-principal {
+    display: flex;
+    justify-content: space-between; /* Empuja el logo a la izq y el usuario a la der */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #1c6758; /* Verde SEC */
+    color: white;
+    padding: 2px 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+
+}
+
+.logo-container img {
+    height: 90px; /* Ajustá este número según el tamaño de tu logo */
+}
+
+.logo-container p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user-logout {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+}
+
+.user-logout img {
+    height: 24px;
+    cursor: pointer;
+}
+/* ====================================
+   2. MENÚ DE NAVEGACIÓN (NAV) - LENGÜETAS COLUMNA
+   ==================================== */
+
+.menu-principal {
+    background-color: #f5f5f5; /* Fondo gris claro de la barra */
+    padding: 0px 100px; /* Margen interno que vos definiste */
+    height: 90px; /* Altura de la barra para que entren el ícono de 70px y el texto */
+    display: flex;
+}
+
+.menu-principal ul {
+    list-style: none; /* Saca los puntitos de la lista */
+    display: flex;
+    gap: 20px; /* Separación gigante entre botones como en tu diseño */
+    align-items: flex-start; /* Pega los botones al techo de la barra */
+    height: 100%;
+}
+
+/* ESTADO NORMAL (Inactivo) */
+.menu-principal a {
+    text-decoration: none; /* Saca el subrayado azul feo */
+    color: #747474; /* Color gris para los inactivos */
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column; /* Pone texto abajo del ícono */
+    align-items: center;
+    justify-content: center;
+    
+    /* Configuración de la caja/lengüeta */
+    height: 95px; /* Ocupa exactamente el mismo alto que la barra gris */
+    padding: 0 35px; /* Un poco de aire a los costados del texto/ícono */
+    border-radius: 0 0 15px 15px; /* Redondea solo las puntas de abajo */
+    transition: all 0.4s ease; /* Transición suave */
+    gap: 9px
+}
+
+/* ESTILO DE ÍCONOS INACTIVOS */
+.menu-principal a img {
+    height: 35px; /* Tu tamaño de ícono */
+
+    filter: grayscale(100%) opacity(50%); /* Hace que el ícono se vea gris y medio apagado */
+    transition: all 0.2s ease;
+}
+
+/* ====================================
+   ESTADO ACTIVO (La pestaña que cuelga)
+   ==================================== */
+.menu-principal a.activo {
+    color: #1c6758; /* Texto verde */
+    font-weight: 700;
+    background-color: #f5f5f5; /* Caja 
+    
+    /* LA MAGIA DEL HUNDIMIENTO */
+    height: 125px; /* Más alta que la barra (120px) para que sobresalga hacia abajo */
+    
+}
+
+/* Le devuelve el color original al ícono activo */
+.menu-principal a.activo img {
+    filter:none
+}
+
+
+
+/* HASTA ACA ES EL MENÚ */
+
+
+
+/* ====================================
+   ESTRUCTURA GENERAL DE LA PÁGINA
+   ==================================== */
+body {
+    background-color: #e4e4e4; /* Fondo gris clarito que envuelve la tabla blanca */
+}
+
+.contenedor-eventos {
+    background-color: #ffffff;
+    width: 1300px;
+    max-width: 95%;
+    margin: 70px auto;
+    border-radius: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 40px 60px;
+    min-height: 800px;
+}
+
+/* ====================================
+   CABECERA Y BUSCADOR
+   ==================================== */
+.cabecera-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.titulo-eventos {
+    font-size: 22px;
+    font-weight: 600;
+    color: #282828;
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    border-radius: 50px;
+    padding: 10px 20px;
+    width: 300px;
+    background-color: #fff;
+}
+
+.buscador input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    color: #282828;
+}
+
+.buscador img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+/* ====================================
+   TABLA DE EVENTOS (Cuadrícula y Cebra)
+   ==================================== */
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto; 
+}
+
+.tabla-sec {
+    width: 100%;
+    border-collapse: collapse; /* Une las líneas perfectamente */
+    text-align: center;        
+    font-size: 13px;
+    color: #282828;
+    border: 1px solid #bbb;    /* Borde exterior de la tabla */
+}
+
+/* LA CUADRÍCULA: Líneas VERTICALES y horizontales bien marcadas */
+.tabla-sec th, 
+.tabla-sec td {
+    border: 1px solid #bbb;    /* Esto es lo que dibuja las líneas verticales entre columnas */
+    padding: 15px 10px; 
+    vertical-align: middle;
+}
+
+/* Fondo para la fila de títulos */
+.tabla-sec th {
+    background-color: #e4e4e4; /* Un gris un toque más oscuro para separar la cabecera */
+    font-weight: 600;
+}
+
+/* ====================================
+   EFECTO CEBRA (Colores intercalados)
+   ==================================== */
+/* Filas impares (1, 3, 5...) */
+.tabla-sec tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Filas pares (2, 4, 6...) */
+.tabla-sec tbody tr:nth-child(even) {
+    background-color: #fcfcfc; /* Gris clarito para diferenciar */
+}
+
+/* Efecto hover: resalta la fila donde tenés el cursor */
+.tabla-sec tbody tr:hover {
+    background-color: #ececec;
+}
+
+/* ====================================
+   ETIQUETAS DE ESTADO Y BOTÓN
+   ==================================== */
+.badge-estado {
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    display: inline-block;
+    text-align: center;
+    min-width: 90px;
+}
+
+.abierto { background-color: #1ac66d; }
+.inscripto { background-color: #7444a1; }
+.completo { 
+    background-color: #d9d9d9; 
+    color: #747474; 
+}
+
+.grupo-estado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ====================================
+   ALINEACIONES Y TEXTOS ESPECÍFICOS
+   ==================================== */
+/* Alinear a la izquierda específicamente Lugar y Evento */
+.align-izq,
+.col-lugar, 
+.col-evento {
+    text-align: left;
+}
+
+/* Colores específicos para los textos de Lugar y Evento */
+.col-lugar, .col-evento {
+    font-weight: 600;
+    color: #1c6758;
+}
+
+/* Botón de inscripción transparente (Limpiado) */
+.btn-inscribirse {
+    background: none;        /* Le saca el fondo gris feo */
+    border: none;            /* Le saca el borde negro */
+    padding: 0;              /* Le quita cualquier espacio interno residual */
+    cursor: pointer;         /* Hace que aparezca la manito al pasar el mouse */
+    display: inline-flex;    /* Centra la imagen perfectamente adentro */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, opacity 0.2s; /* Animación suave para el hover */
+}
+
+/* El icono que está adentro del botón */
+.btn-inscribirse img {
+    width: 24px;             /* Controlás el tamaño de tu cuadrado check */
+    height: 24px;
+    display: block;
+}
+
+/* Efectito profesional al pasar el mouse */
+.btn-inscribirse:hover {
+    transform: scale(1.05);  /* Agranda un poquitito el check */
+    opacity: 0.8;            /* Se vuelve un toque transparente para avisar que es clicleable */
+}
+
+/* Para los iconos que son solo informativos y fijos */
+.icono-estatico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default; /* En vez de la manito, mantiene la flecha normal del cursor */
+}
+
+.icono-estatico img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    opacity: 0.9; /* Un tono firme pero que delata que es un estado fijo */
+}
+
+/* ====================================
+   MODAL / POPUP DE EVENTOS
+   ==================================== */
+
+/* El fondo oscuro translúcido */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Oscurece el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que quede por encima de todo */
+}
+
+/* La tarjeta blanca */
+.modal-contenido {
+    background-color: #fbfbfb;
+
+    width: 800px;
+    max-width: 90%;
+    max-height: 90vh; /* Para que no se pase de la pantalla */
+    overflow-y: auto; /* Si hay mucho texto, se puede scrollear adentro */
+    padding: 30px;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    color: #282828;
+}
+
+/* Botón de cerrar */
+.btn-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #747474;
+}
+
+/* Dividimos en dos columnas */
+.modal-columnas {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.col-info, .col-inscriptos {
+    flex: 1; /* Ocupan mitad y mitad */
+}
+
+.modal-columnas h3 {
+    border-bottom: 2px solid #d9d9d9;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #1e1e1e;
+}
+
+.col-info p {
+    margin: 5px 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* --- ESTILOS DEL MAPA --- */
+.link-mapa {
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-mapa {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: filter 0.3s;
+}
+
+.link-mapa:hover .img-mapa {
+    filter: brightness(0.8); /* Se oscurece un poco al pasar el mouse */
+}
+
+.click-ver {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.link-mapa:hover .click-ver {
+    opacity: 1; /* Aparece el cartelito de click */
+}
+
+/* --- LISTA DE PERSONAS --- */
+.lista-personas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+
+.persona-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.rol-encargado { font-weight: bold; color: #1c6758; }
+.rol-voluntario { color: #747474; }
+.rol-suplente { color: #a6a6a6; font-style: italic; }
+
+.rol-grupo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- EL TOOLTIP DEL TELÉFONO --- */
+.icono-info {
+    cursor: pointer;
+    position: relative;
+}
+
+.icono-info::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%;
+    right: 0;
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.icono-info:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+.mapa-google {
+    width: 100%;   /* Ocupa el 100% del ancho del recuadro que le preparaste en el modal */
+    height: 250px; /* Dale la altura que quieras, 250px suele quedar bien */
+    border-radius: 10px; /* Para que las puntas queden redondeadas y no tan "cuadradas" */
+}
+
+/* Definimos la animación */
+@keyframes deslizarDesdeArriba {
+    0% {
+        transform: translateY(-50px); /* Empieza 50px más arriba */
+        opacity: 0;                   /* Invisible al inicio */
+    }
+    100% {
+        transform: translateY(0);     /* Termina en su lugar original */
+        opacity: 1;                   /* Totalmente visible */
+    }
+}
+
+/* Aplicamos la animación a tu contenedor principal */
+.contenedor-principal {
+    /* Llamamos a la animación, le damos 0.8 segundos y 'ease-out' para que frene suave */
+    animation: deslizarDesdeArriba 0.8s ease-out; 
+}
+.modal-contenido { animation: deslizarDesdeArriba 0.8s ease-out; }
+
+.oculto {
+    display: none !important;
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+.footer-sec {
+    background-color: #acacac;
+    width: 100%;
+
+    border-top: 1px solid #d9d9d9;
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-footer {
+    display: flex;
+    width: 200px;
+    margin: auto;
+ }
+
+.redes-sociales {
+    display: flex;
+    padding-left: 100px;
+    gap: 15px;
+}
+
+.redes-sociales img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.redes-sociales img:hover {
+    transform: scale(1.1);
+}
+
+/* Definimos la animación */
+@keyframes deslizarDesdeArriba {
+    0% {
+        transform: translateY(-50px); /* Empieza 50px más arriba */
+        opacity: 0;                   /* Invisible al inicio */
+    }
+    100% {
+        transform: translateY(0);     /* Termina en su lugar original */
+        opacity: 1;                   /* Totalmente visible */
+    }
+}
+
+/* Aplicamos la animación a tu contenedor principal */
+.contenedor-eventos {
+    /* Llamamos a la animación, le damos 0.8 segundos y 'ease-out' para que frene suave */
+    animation: deslizarDesdeArriba 0.8s ease-out; 
+}
+.modal-contenido { animation: deslizarDesdeArriba 0.8s ease-out; }

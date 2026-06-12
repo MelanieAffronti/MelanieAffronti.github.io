@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Perfil - SEC Socorrismo</title>
+    <link rel="stylesheet" href="css/stylesayuda.css">
+</head>
+<body>
+
+    <header class="header-principal">
+        <div class="logo-container">
+            <img src="img/logoheader.svg" alt="Logo SEC"> 
+            <p>Fundación Sé El Cambio</p>
+        </div>
+
+        <div class="user-logout">
+            <span>Nombre Apellido</span>
+            <a href="index.html">
+                <img src="img/Log.svg" alt="Cerrar sesión">
+            </a>
+        </div>
+    </header>
+
+    <nav class="menu-principal">
+
+        
+        <ul>
+            <li>
+                <a href="inicio.html">
+                    <img src="img/icon sce.svg" alt=""> Perfil
+                </a>
+            </li>
+            <li>
+                <a href="eventos.html">
+                    <img src="img/icon chaleco.svg" alt=""> Eventos
+                </a>
+            </li>
+            <li>
+                <a href="cursos.html">
+                    <img src="img/GAFETE.svg" alt=""> Cursos
+                </a>
+            </li>
+            <li>
+                <a href="ayuda.html" class="activo">
+                    <img src="img/icon cursos.svg" alt=""> Ayuda
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- ========================================== -->
+    <!-- CONTENEDOR PRINCIPAL DE AYUDA              -->
+    <!-- ========================================== -->
+    <main class="contenedor-ayuda">
+        
+        <!-- SECCIÓN 1: Menú superior con iconos redondos -->
+        <section class="ayuda-hero">
+            <h2 class="titulo-ayuda">¿Qué estás buscando?</h2>
+            
+            <div class="ayuda-botones">
+                <!-- El href de estos anclas coinciden con los ID de las secciones de abajo -->
+                <a href="#seccion-faq" class="btn-ancla">
+                    <div class="circulo-icono">
+                        <img src="img/faq.svg" alt="Preguntas Frecuentes">
+                    </div>
+                    <span class="etiqueta-verde">Preguntas Frecuentes</span>
+                </a>
+
+                <a href="#seccion-reglas" class="btn-ancla">
+                    <div class="circulo-icono">
+                        <img src="img/reglas.svg" alt="Reglas">
+                    </div>
+                    <span class="etiqueta-verde">Reglas</span>
+                </a>
+
+                <a href="#seccion-contactos" class="btn-ancla">
+                    <div class="circulo-icono">
+                        <img src="img/contacto.svg" alt="Contactos">
+                    </div>
+                    <span class="etiqueta-verde">Contactos</span>
+                </a>
+            </div>
+            
+            <!-- El iconito separador abajo de los botones -->
+            <img src="img/isotipo-sec-chico.svg" alt="" class="icono-separador">
+        </section>
+
+        <!-- SECCIÓN 2: Preguntas Frecuentes -->
+        <section id="seccion-faq" class="seccion-contenido">
+            <h3 class="titulo-seccion">Preguntas Frecuentes</h3>
+            <div class="acordeon-lista">
+                <div class="acordeon-item">
+                    <span>Inscripciones, Bajas y Asistencias</span>
+                    <img src="img/flechaabajo.svg" alt="Abrir">
+                </div>
+                <div class="acordeon-item">
+                    <span>Dinámica en los Eventos</span>
+                    <img src="img/flechaabajo.svg" alt="Abrir">
+                </div>
+                <div class="acordeon-item">
+                    <span>Herramientas y Plataforma</span>
+                    <img src="img/flechaabajo.svg" alt="Abrir">
+                </div>
+                <div class="acordeon-item">
+                    <span>Capacitaciones</span>
+                    <img src="img/flechaabajo.svg" alt="Abrir">
+                </div>
+                <div class="acordeon-item">
+                    <span>Roles y Responsabilidades</span>
+                    <img src="img/flechaabajo.svg" alt="Abrir">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: Reglas -->
+        <section id="seccion-reglas" class="seccion-contenido">
+            <h3 class="titulo-seccion">Reglas</h3>
+            <div class="acordeon-lista">
+                <div class="acordeon-item">
+                    <span>Reglas generales básicas</span>
+                    <img src="img/flechaabajo.svg" alt="Abrir">
+                </div>
+                <div class="acordeon-item">
+                    <span>Obligaciones del Voluntario</span>
+                    <img src="img/flechaabajo.svg" alt="Abrir">
+                </div>
+                <div class="acordeon-item">
+                    <span>Obligaciones de la Fundación</span>
+                    <img src="img/flechaabajo.svg" alt="Abrir">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: Contactos -->
+        <section id="seccion-contactos" class="seccion-contenido">
+            <h3 class="titulo-seccion">Contactos</h3>
+            <div class="caja-contactos">
+                
+                <!-- Columna Izquierda -->
+                <div class="columna-contacto">
+                    <div class="item-contacto">
+                        <h4>Bajas de Eventos</h4>
+                        <p><span class="bold">Correo:</span> bajas@ejemplo.com</p>
+                        <p><span class="bold">¿Para qué sirve?</span> Para informar la baja de algún evento, o informar sobre la llegada tarde al mismo.</p>
+                    </div>
+
+                    <div class="item-contacto">
+                        <h4>Capacitaciones</h4>
+                        <p><span class="bold">Correo:</span> capacitaciones@ejemplo.com</p>
+                        <p><span class="bold">¿Para qué sirve?</span> Consultas, propuestas, llegadas tarde a los cursos y bajas de los mismos.</p>
+                    </div>
+
+                    <div class="item-contacto">
+                        <h4>Viáticos</h4>
+                        <p><span class="bold">Correo:</span> viaticos@ejemplo.com</p>
+                        <p><span class="bold">¿Para qué sirve?</span> Para enviar el aviso de que ya completaste tu Excel quincenal y cargaste los comprobantes, habilitando así el proceso de pago.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha -->
+                <div class="columna-contacto">
+                    <div class="item-contacto">
+                        <h4>Coordinación de Voluntariado</h4>
+                        <p><span class="bold">Correo:</span> voluntariado@ejemplo.com</p>
+                        <p><span class="bold">¿Para qué sirve?</span> Cualquier inconveniente que tengan los voluntarios relacionados con eventos o actividades (con excepción de las bajas a eventos y capacitaciones internas, para lo cual deberá usarse el respectivo mail). Consultas y dudas sobre los Reglamentos, las altas de voluntariado, observaciones, comentarios, inconvenientes en general, recomendaciones y para informar la baja definitiva la institución.</p>
+                    </div>
+
+                    <div class="item-contacto">
+                        <h4>Uniformes</h4>
+                        <p><span class="bold">Correo:</span> uniformes@ejemplo.com</p>
+                        <p><span class="bold">¿Para qué sirve?</span> Para consultar el stock disponible de talles y coordinar la compra o retiro de tu indumentaria.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+<section id="seccion-formulario" class="seccion-contenido">
+    <h3 class="titulo-seccion">¿No encontraste lo que buscabas?</h3>
+    <div class="caja-formulario">
+        <p class="desc-formulario">Si tu consulta no figura en las preguntas frecuentes, completá el formulario y nuestro equipo te responderá a la brevedad.</p>
+        
+        <form name="consultas-especificas" method="POST" data-netlify="true" class="formulario-estilo">
+            <div class="fila-form">
+                <div class="campo">
+                    <label>Nombre Completo</label>
+                    <input type="text" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="campo">
+                    <label>Tu Correo</label>
+                    <input type="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+            </div>
+            
+            <div class="campo">
+                <label>Tu Consulta</label>
+                <textarea name="mensaje" rows="5" placeholder="Escribí tu duda aquí..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-enviar">Enviar consulta</button>
+        </form>
+    </div>
+</section>
+
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="footer-sec">
+        <div class="footer-contenido">
+            <p class="creditos">Diseñado para el Trabajo Práctico de Diseño Web y mobile por Melanie Affronti.</p>
+            <div class="redes-sociales">
+                <a href="https://www.instagram.com/sec.socorrismo/" target="_blank">
+                    <img src="img/instagram.svg" alt="Instagram">
+                </a>
+                <a href="#"><img src="img/facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter.svg" alt="X"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

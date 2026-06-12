@@ -760,3 +760,134 @@ width: 520px;
     margin: 0 !important;   /* Anula el margin: 60px y margin-left: 185px que tenías antes */
     box-sizing: border-box; /* Evita que el padding las haga más anchas */
 }
+
+
+/* ====================================
+   TARJETA HISTORIAL (ABAJO DE TODO)
+   ==================================== */
+.tarjeta-historial {
+    background-color: #f6f6f6;
+    border-radius: 40px;
+    width: 100%;
+    max-width: 1147px;      /* Mismo ancho total que el bloque superior para alinear perfecto */
+    padding: 40px 60px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.titulo-historial {
+    text-align: center;
+    color: #1c6758;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de la línea de tiempo */
+.timeline-contenedor {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+    max-height: 380px; 
+    overflow-y: auto;  
+    padding-right: 15px; 
+    padding-left: 10px;
+}
+
+/* La línea gris vertical */
+.timeline-contenedor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 41px; /* Centrado con los círculos */
+    width: 2px;
+    background-color: #747474;
+    z-index: 1;
+}
+
+/* Estilos de la barra de scroll (Scrollbar) */
+.timeline-contenedor::-webkit-scrollbar { width: 8px; }
+.timeline-contenedor::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
+
+/* Filas del historial */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Círculo gris */
+.circulo-icono {
+    width: 62px;
+    height: 62px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.circulo-icono img {
+    width: 30px;
+    height: auto;
+}
+
+/* Globo blanco */
+.timeline-tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    padding: 15px 20px;
+    flex: 1; 
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+/* El "piquito" del globo (reemplaza las imágenes de Figma) */
+.timeline-tarjeta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -6px; 
+    transform: translateY(-50%) rotate(45deg); 
+    width: 11px;
+    height: 11px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9d9d9; 
+    border-left: 1px solid #d9d9d9;   
+}
+
+/* Textos del historial */
+.evento-titulo {
+    color: #282828;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: auto;
+}
+
+.evento-detalle {
+    color: #747474;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icono-reloj {
+    width: 12px;
+    opacity: 0.7;
+}
+
+.tarjeta-historial {
+    width: 90%;          /* Ocupa un ancho razonable, por ejemplo el 90% de la pantalla */
+    max-width: 1147px;   /* Que no sea más ancho que tus otras columnas */
+    margin: 40px auto;   /* ¡ESTA ES LA CLAVE! El "auto" a los costados centra el bloque */
+}

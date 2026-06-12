@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos - SEC Socorrismo</title>
+    <link rel="stylesheet" href="css/styleseventos.css">
+</head>
+<body>
+
+    <header class="header-principal">
+        <div class="logo-container">
+            <img src="img/logoheader.svg" alt="Logo SEC"> 
+            <p>Fundación Sé El Cambio</p>
+        </div>
+
+        <div class="user-logout">
+            <span>Nombre Apellido</span>
+            <a href="index.html">
+                <img src="img/Log.svg" alt="Cerrar sesión">
+            </a>
+        </div>
+    </header>
+
+    <nav class="menu-principal">
+
+        
+        <ul>
+            <li>
+                <a href="inicio.html">
+                    <img src="img/icon sce.svg" alt=""> Perfil
+                </a>
+            </li>
+            <li>
+                <a href="eventos.html" class="activo">
+                    <img src="img/icon chaleco.svg" alt=""> Eventos
+                </a>
+            </li>
+            <li>
+                <a href="cursos.html">
+                    <img src="img/GAFETE.svg" alt=""> Cursos
+                </a>
+            </li>
+            <li>
+                <a href="ayuda.html">
+                    <img src="img/icon cursos.svg" alt=""> Ayuda
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="contenedor-eventos">
+        
+        <div class="cabecera-lista">
+            <h2 class="titulo-eventos">Lista de Eventos</h2>
+            
+            <div class="buscador">
+    <input type="text" id="input-buscador" placeholder="Buscar Evento">
+    <img src="img/buscar.svg" alt="Buscar">
+</div>
+            
+        </div>
+
+        <div class="tabla-contenedor">
+            <table class="tabla-sec">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha Ingreso</th>
+            <th>Fecha Salida</th>
+            <th class="align-izq">Lugar</th>
+            <th class="align-izq">Evento</th>
+            <th>Vol.</th>
+            <th>Estado</th>
+            <th>Viático</th>
+            <th></th> 
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Fila 1: EVENTO DISPONIBLE (SÍ funciona como botón) -->
+        <tr>
+            <td>6690</td>
+            <td>31-05-2026 |<br>18:30 | Domingo</td>
+            <td>31-05-2026 |<br>22:30 | Domingo</td>
+            <td class="col-lugar">Ciudad Cultural Konex</td>
+            <td class="col-evento">La bomba del tiempo</td>
+            <td>4</td>
+            <td><span class="badge-estado abierto">Abierto</span></td>
+            <td>10000</td>
+            <td>
+                <!-- El botón real con clase para JS y el cartelito de ayuda al pasar el mouse -->
+                <button class="btn-inscribirse accion-inscribir" title="Inscribirse">
+                    <img src="img/checkcuadrado.svg" alt="Inscribirme">
+                </button>
+            </td>
+        </tr>
+
+        <!-- Fila 2: YA INSCRIPTO (NO es botón, solo imagen con texto flotante) -->
+        <tr class="fila-inscripto"> 
+            
+            <td>6689</td>
+            <td>30-05-2026 |<br>15:00 | Domingo</td>
+            <td>01-06-2026 |<br>01:00 | Lunes</td>
+            <td class="col-evento abrir-modal" data-target="modal-megadeth" style="cursor: pointer; text-decoration: none;">Tecnópolis QR</td>
+            <td class="col-evento abrir-modal" data-target="modal-megadeth" style="cursor: pointer; text-decoration: none;">MEGADETH</td>
+            <td>28</td>
+            <td>
+                <div class="grupo-estado">
+                    <span class="badge-estado abierto">Abierto</span>
+                    <span class="badge-estado inscripto">Estás Inscripto</span>
+                </div>
+            </td>
+            <td>30000</td>
+            <td>
+                <!-- Sacamos el <button> y usamos el atributo title para el texto flotante nativo -->
+                <div class="icono-estatico" title="Ya estás inscripto en este evento">
+                    <img src="img/Check.svg" alt="Confirmado">
+                </div>
+            </td>
+        </tr>
+
+        <!-- Fila 3: COMPLETO Y YA INSCRIPTO (NO es botón, solo estático) -->
+        <tr>
+            <td>6687</td>
+            <td>26-05-2026 |<br>16:30 | Martes</td>
+            <td>27-05-2026 |<br>01:00 | Miércoles</td>
+            <td class="col-lugar">Movistar Arena</td>
+            <td class="col-evento">Soda Stereo</td>
+            <td>15</td>
+            <td>
+                <div class="grupo-estado">
+                    <span class="badge-estado completo">Completo</span>
+                    <span class="badge-estado inscripto">Estás Inscripto</span>
+                </div>
+            </td>
+            <td>16000</td>
+            <td>
+                <div class="icono-estatico" title="Ya estás inscripto en este evento">
+                    <img src="img/Check.svg" alt="Confirmado">
+                </div>
+            </td>
+        </tr>
+
+        <!-- 1. MOVISTAR ARENA (17:30 a 01:00h) -->
+        <tr>
+            <td>6686</td>
+            <td>22-05-2026 |<br>17:30 | Viernes</td>
+            <td>23-05-2026 |<br>01:00 | Sábado</td>
+            <td class="col-lugar">Movistar Arena</td>
+            <td class="col-evento">Tan Bionica</td>
+            <td>18</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>16000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+                   
+                </div>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td>6685</td>
+            <td>14-05-2026 |<br>17:30 | Jueves</td>
+            <td>15-05-2026 |<br>01:00 | Viernes</td>
+            <td class="col-evento abrir-modal" data-target="modal-arjona" style="cursor: pointer; text-decoration: none;">Movistar Arena</td>
+            <td class="col-evento abrir-modal" data-target="modal-arjona" style="cursor: pointer; text-decoration: none;">Ricardo Arjona</td>
+            <td>10</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>16000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+                 
+                </div>
+            </td>
+            
+        </tr>
+
+        <!-- 3. ESTADIO VÉLEZ SARSFIELD (14:00 a 01:00h) -->
+        <tr>
+            <td>6684</td>
+            <td>09-05-2026 |<br>15:00 | Sábado</td>
+            <td>10-05-2026 |<br>01:00 | Domingo</td>
+            <td class="col-lugar">Estadio FERRO</td>
+            <td class="col-evento">No Te Va Gustar</td>
+            <td>30</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>25000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+                 
+                </div>
+            </td>
+        </tr>
+
+        <!-- 4. CIUDAD CULTURAL KONEX (Tarde/Noche alternativo) -->
+        <tr>
+            <td>6683</td>
+            <td>04-05-2026 |<br>18:30 | Lunes</td>
+            <td>04-05-2026 |<br>23:00 | Lunes</td>
+            <td class="col-lugar">Ciudad Cultural Konex</td>
+            <td class="col-evento">La Bomba del Tiempo</td>
+            <td>4</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>10000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+                   
+                </div>
+            </td>
+        </tr>
+
+        <!-- 5. MOVISTAR ARENA (17:30 a 01:00h) -->
+        <tr>
+            <td>6682</td>
+            <td>28-04-2026 |<br>17:30 | Martes</td>
+            <td>29-04-2026 |<br>01:00 | Miércoles</td>
+            <td class="col-lugar">Movistar Arena</td>
+            <td class="col-evento">Chase Atlantic</td>
+            <td>20</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>16000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+           
+                </div>
+            </td>
+        </tr>
+
+        <!-- 6. ESTADIO RIVER PLATE (13:00 a 01:00h) -->
+        <tr>
+            <td>6681</td>
+            <td>24-04-2026 |<br>13:00 | Viernes</td>
+            <td>25-04-2026 |<br>01:00 | Sábado</td>
+            <td class="col-lugar">Estadio River Plate</td>
+            <td class="col-evento">Airbag</td>
+            <td>40</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>35000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+            
+                </div>
+            </td>
+        </tr>
+
+        <!-- 7. ESTADIO VÉLEZ SARSFIELD (14:00 a 01:00h) -->
+        <tr>
+            <td>6680</td>
+            <td>18-04-2026 |<br>14:00 | Sábado</td>
+            <td>19-04-2026 |<br>01:00 | Domingo</td>
+            <td class="col-lugar">Estadio Vélez Sarsfield</td>
+            <td class="col-evento">Wos</td>
+            <td>32</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>28000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+     
+                </div>
+            </td>
+        </tr>
+
+        <!-- 8. CIUDAD CULTURAL KONEX (Formato mediodía/tarde) -->
+        <tr>
+            <td>6679</td>
+            <td>12-04-2026 |<br>12:00 | Domingo</td>
+            <td>12-04-2026 |<br>19:00 | Domingo</td>
+            <td class="col-lugar">Ciudad Cultural Konex</td>
+            <td class="col-evento">Konex Tarde</td>
+            <td>4</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>10000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+
+                </div>
+            </td>
+        </tr>
+
+        <!-- 9. MOVISTAR ARENA (17:30 a 01:00h) -->
+        <tr>
+            <td>6678</td>
+            <td>08-04-2026 |<br>17:30 | Miércoles</td>
+            <td>09-04-2026 |<br>01:00 | Jueves</td>
+            <td class="col-lugar">Movistar Arena</td>
+            <td class="col-evento">Ke Personajes</td>
+            <td>15</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>16000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+           
+                </div>
+            </td>
+        </tr>
+
+        <!-- 10. ESTADIO RIVER PLATE (13:00 a 01:00h) -->
+        <tr>
+            <td>6677</td>
+            <td>03-04-2026 |<br>13:00 | Viernes</td>
+            <td>04-04-2026 |<br>01:00 | Sábado</td>
+            <td class="col-lugar">Estadio River Plate</td>
+            <td class="col-evento">Coldplay</td>
+            <td>35</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>35000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+         
+                </div>
+            </td>
+        </tr>
+
+        <!-- 11. ESTADIO VÉLEZ SARSFIELD (14:00 a 01:00h) -->
+        <tr>
+            <td>6676</td>
+            <td>28-03-2026 |<br>14:00 | Sábado</td>
+            <td>29-03-2026 |<br>01:00 | Domingo</td>
+            <td class="col-lugar">Estadio Vélez Sarsfield</td>
+            <td class="col-evento">La Renga</td>
+            <td>40</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>28000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+
+                </div>
+            </td>
+        </tr>
+
+        <!-- 12. CIUDAD CULTURAL KONEX (18:30 a 23:00h) -->
+        <tr>
+            <td>6675</td>
+            <td>23-03-2026 |<br>18:30 | Lunes</td>
+            <td>23-03-2026 |<br>23:00 | Lunes</td>
+            <td class="col-lugar">Ciudad Cultural Konex</td>
+            <td class="col-evento">La Bomba del Tiempo</td>
+            <td>6</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>10000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+        
+                </div>
+            </td>
+        </tr>
+
+        <!-- 13. MOVISTAR ARENA (17:30 a 01:00h) -->
+        <tr>
+            <td>6674</td>
+            <td>19-03-2026 |<br>17:30 | Jueves</td>
+            <td>20-03-2026 |<br>01:00 | Viernes</td>
+            <td class="col-lugar">Movistar Arena</td>
+            <td class="col-evento">Babasonicos</td>
+            <td>16</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>16000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+               
+                </div>
+            </td>
+        </tr>
+
+        <!-- 14. ESTADIO RIVER PLATE (13:00 a 01:00h) -->
+        <tr>
+            <td>6673</td>
+            <td>13-03-2026 |<br>13:00 | Viernes</td>
+            <td>14-03-2026 |<br>01:00 | Sábado</td>
+            <td class="col-lugar">Estadio River Plate</td>
+            <td class="col-evento">Red Hot Chili Peppers</td>
+            <td>42</td>
+            <td><span class="badge-estado completo">Completo</span></td>
+            <td>35000</td>
+            <td>
+                <div class="icono-estatico" title="Evento completo">
+              
+                </div>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+        </div>
+
+    </main>
+
+
+<!-- EL POPUP FLOTANTE (Oculto por defecto) -->
+<div id="modal-arjona" class="modal-overlay" style="display: none;">
+    <div class="modal-contenido">
+        
+        <!-- Botón de cerrar -->
+        <button id="btn-cerrar-modal" class="btn-cerrar">✖</button>
+
+        <div class="modal-columnas">
+            
+            <!-- COLUMNA IZQUIERDA: Info del Lugar -->
+            <div class="col-info">
+                <h3>Lugar</h3>
+                <p><strong>Nombre:</strong> Movistar Arena</p>
+                <p><strong>Dirección:</strong> Humboldt 450, C1414 CABA</p>
+                <p><strong>Punto de Encuentro:</strong> Av. Corrientes 6094</p>
+                <br>
+                <p><strong>¿Cómo llegar?:</strong></p>
+                <p><strong>Colectivos:</strong> 19, 34, 42, 47, 55, 63, 65, 71, 76, 78, 87, 90, 93, 99, 108, 109, 110, 111, 127, 166, 176</p>
+                <p><strong>Trenes:</strong> Línea Urquiza (Federico Lacroze) // Línea San Martín (Villa Crespo)</p>
+                <p><strong>Subte:</strong> Línea B (Estación Dorrego)</p>
+                <br>
+                <p><strong>Mapa:</strong></p>
+                <!-- El mapa es una imagen que funciona como link -->
+                <iframe class="mapa-google" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.381662918632!2d-58.45057612508856!3d-34.59450927295763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5eb6fb40a93%3A0x1fcab11b62b55896!2sMovistar%20Arena!5e0!3m2!1ses-419!2sar!4v1780610363822!5m2!1ses-419!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <span class="click-ver">Click para abrir en Google Maps</span>
+                </a>
+            </div>
+
+            <!-- COLUMNA DERECHA: Lista de Inscriptos -->
+            <div class="col-inscriptos">
+                <h3>Inscriptos (#14)</h3>
+                <ul class="lista-personas">
+                    
+                    <!-- El Encargado con su Tooltip -->
+                    <li class="persona-item">
+                        <span class="nombre-persona">Luciana Castro</span>
+                        <div class="rol-grupo">
+                            <span class="rol-encargado">Encargado</span>
+                            <!-- Acá está la magia del tooltip (i) -->
+                            <span class="icono-info" data-tooltip="Tel: 11-2345-6789"><img src="img/Info.svg" alt=""></span>
+                        </div>
+                    </li>
+
+                    <!-- Voluntarios (Podés copiar y pegar esto para los 14) -->
+                    <li class="persona-item">
+                        <span class="nombre-persona">Valentina Rossi</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Mateo Fernández</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Lucía Bianchi</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Julián Martínez</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                                            <li class="persona-item">
+                        <span class="nombre-persona">Sofía Moretti</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Benjamín Costa</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Camila Duarte</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Tomás Herrera</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Martina Silva</span>
+                        <span class="rol-voluntario">Voluntario</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Nicolás Romero</span>
+                        <span class="rol-suplente">Suplente</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Isabella Castro</span>
+                        <span class="rol-suplente">Suplente</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Agustín Torres</span>
+                        <span class="rol-suplente">Suplente</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Elena Paredes</span>
+                        <span class="rol-suplente">Suplente</span>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="modal-megadeth" class="modal-overlay" style="display: none;">
+    <div class="modal-contenido">
+        <button class="btn-cerrar">✖</button>
+        <div class="modal-columnas">
+            
+            <!-- COLUMNA IZQUIERDA: Info del Lugar -->
+            <div class="col-info">
+                <h3>Lugar</h3>
+                <p><strong>Nombre:</strong> Tecnópolis QR</p>
+                <p><strong>Dirección:</strong> Av. Constituyentes y Maipu</p>
+                <p><strong>Punto de Encuentro:</strong> Av. Constituyentes y Maipu</p>
+                <br>
+                <p><strong>¿Cómo llegar?:</strong></p>
+                <p><strong>Colectivos:</strong> 21, 28, 111, 112, 117, 127, 140, 142, 175, 176</p>
+                <p><strong>Trenes:</strong> Linea Mitre - Estación San Martín</p>
+                <p> Linea Belgrano Norte - Estación M. M. Padilla</p>
+                <p><strong>Subte:</strong> - </p>
+                <br>
+                <p><strong>Mapa:</strong></p>
+                <!-- El mapa es una imagen que funciona como link -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d410.7023771902228!2d-58.51519998277457!3d-34.56320041135179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb71b832da9f3%3A0x1f78a3e79baccb97!2sAv.%20de%20los%20Constituyentes%201906-1902%2C%20B1650%20Villa%20Martelli%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1781225140022!5m2!1ses-419!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <span class="click-ver">Click para abrir en Google Maps</span>
+                </a>
+            </div>
+
+            <!-- COLUMNA DERECHA: Lista de Inscriptos -->
+            <div class="col-inscriptos">
+                <h3>Inscriptos (#38)</h3>
+                <ul class="lista-personas">
+                    
+
+                    <!-- Voluntarios (Podés copiar y pegar esto para los 14) -->
+                    <li class="persona-item">
+                        <span class="nombre-persona">Santiago Ramallo</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Alma Quintana</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Jerónimo Rivas</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Luana Galván</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Thiago Ibarra</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Olivia Bustamante</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Lautaro Salinas</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Jazmín Corvalán</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Mauro Ledezma</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Aitana Figueroa</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Facundo Varela</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Renata Guzmán</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Gastón Orellana</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Paloma Peralta</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Tomás Cabral</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Chiara Espinosa</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Lucas Valenzuela</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Milagros Funes</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Dante Guevara</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Abril Mendoza</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Felipe Beltrán</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Catalina Solís</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Ignacio Pardo</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Florencia Villalba</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Joaquín Santillán</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Valentina Rossi</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Mateo Fernández</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Lucía Bianchi</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Julián Martínez</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                                            <li class="persona-item">
+                        <span class="nombre-persona">Sofía Moretti</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Benjamín Costa</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Camila Duarte</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Tomás Herrera</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Sin confirmar</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <footer class="footer-sec">
+        <div class="footer-contenido">
+
+            <div>
+                 <div class="logo-footer">
+                <img src="img/logosec.svg" alt="">
+            </div>
+</div> 
+            <div class="redes-sociales">
+                <a href="https://www.instagram.com/sec.socorrismo/" target="_blank">
+                    <img src="img/instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/socorrismo">
+                    <img src="img/Facebook.svg" alt="Facebook">
+                </a>
+                <a href="#">
+                    <img src="img/twitter.svg" alt="X">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* Buscador mejorado */
+const inputBuscador = document.getElementById("input-buscador");
+const filasEventos = document.querySelectorAll(".tabla-sec tbody tr");
+
+inputBuscador.addEventListener("input", function(e) {
+    const textoBusqueda = e.target.value.toLowerCase().trim();
+
+    filasEventos.forEach(fila => {
+        // textContent agarra TODO el texto visible de esa fila (Lugar, Evento, Fecha, ID...)
+        const contenidoFila = fila.textContent.toLowerCase();
+
+        // Si el buscador está vacío o el texto coincide con cualquier cosa de la fila
+        if (textoBusqueda === "" || contenidoFila.includes(textoBusqueda)) {
+            fila.classList.remove("oculto");
+        } else {
+            fila.classList.add("oculto");
+        }
+    });
+});
+    /* ========================================================
+       2. ALERTA NATIVA DE INSCRIPCIÓN (Tu idea de usar el navegador)
+       ======================================================== */
+    const botonesInscribirse = document.querySelectorAll(".btn-inscribirse");
+
+    botonesInscribirse.forEach(boton => {
+        boton.addEventListener("click", function(e) {
+            e.stopPropagation(); // Evita que un click en el botón active también la fila
+            
+            // Buscamos la fila a la que pertenece este botón para sacar el nombre del evento
+            const fila = this.closest("tr");
+            const nombreEvento = fila.querySelector(".col-evento").textContent.trim();
+
+            // Lanzamos la alerta nativa del navegador con saltos de línea (\n)
+            const confirmacion = confirm(`Vas a inscribirte como voluntario para "${nombreEvento}".\nPor favor, verificá tener disponibilidad para esta fecha.\n\n¿Estás seguro que deseas continuar?`);
+
+            if (confirmacion) {
+                // Si el usuario le da a "Aceptar"
+                alert("¡Inscripción confirmada! Ya estás en la lista.");
+                
+                // Opcional: Acá podrías cambiar el diseño del botón para que se vea como el tilde verde fijo
+                // this.outerHTML = `<div class="icono-estatico" title="Ya estás inscripto"><img src="img/Check.svg" alt="Confirmado"></div>`;
+            }
+        });
+    });
+
+    /* ========================================================
+       3. ABRIR Y CERRAR LAS VENTANAS DE INFO (MODALES)
+       ======================================================== */
+    const triggersModal = document.querySelectorAll(".abrir-modal");
+    const botonesCerrar = document.querySelectorAll(".btn-cerrar-modal");
+
+    // Abrir el modal correspondiente
+    triggersModal.forEach(trigger => {
+        trigger.addEventListener("click", function() {
+            // Lee qué ID de modal tiene anotado en su data-target
+            const idModal = this.getAttribute("data-target");
+            const modal = document.getElementById(idModal);
+            
+            if (modal) {
+                modal.style.display = "flex";
+            }
+        });
+    });
+
+    // Cerrar el modal con la crucecita
+    botonesCerrar.forEach(btn => {
+        btn.addEventListener("click", function() {
+            // Busca la ventana oscura que lo envuelve y la apaga
+            const modal = this.closest(".modal-overlay"); 
+            if (modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+
+    // Cerrar el modal si hacés click afuera de la caja blanca
+    window.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal-overlay")) {
+            e.target.style.display = "none";
+        }
+    });
+
+});
+
+
+
+</script>
+
+    </body>

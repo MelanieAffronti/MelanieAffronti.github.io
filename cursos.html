@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Capacitaciones - SEC Socorrismo</title>
+    <link rel="stylesheet" href="css/stylescursos.css">
+</head>
+<body>
+
+    <header class="header-principal">
+        <div class="logo-container">
+            <img src="img/logoheader.svg" alt="Logo SEC"> 
+            <p>Fundación Sé El Cambio</p>
+        </div>
+
+        <div class="user-logout">
+            <span>Nombre Apellido</span>
+            <a href="index.html">
+                <img src="img/Log.svg" alt="Cerrar sesión">
+            </a>
+        </div>
+    </header>
+
+    <nav class="menu-principal">
+
+        
+        <ul>
+            <li>
+                <a href="inicio.html">
+                    <img src="img/icon sce.svg" alt=""> Perfil
+                </a>
+            </li>
+            <li>
+                <a href="eventos.html">
+                    <img src="img/icon chaleco.svg" alt=""> Eventos
+                </a>
+            </li>
+            <li>
+                <a href="cursos.html" class="activo">
+                    <img src="img/GAFETE.svg" alt=""> Cursos
+                </a>
+            </li>
+            <li>
+                <a href="ayuda.html">
+                    <img src="img/icon cursos.svg" alt=""> Ayuda
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="contenedor-cursos">
+        
+        <div class="cabecera-lista">
+            <h2 class="titulo-eventos">Lista de Capacitaciones</h2>
+            
+            <div class="buscador">
+    <input type="text" id="input-buscador" placeholder="Buscar Curso">
+    <img src="img/buscar.svg" alt="Buscar">
+</div>
+</div>
+            
+        </div>
+
+        <div class="tabla-contenedor">
+            <table class="tabla-sec">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha Ingreso</th>
+            <th>Fecha Salida</th>
+            <th class="align-izq">Lugar</th>
+            <th class="align-izq">Evento</th>
+            <th>Vol.</th>
+            <th>Estado</th>
+            <th>Viático</th>
+            <th></th> 
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Fila 1: EVENTO DISPONIBLE (SÍ funciona como botón) -->
+        <tr>
+            <td>1000</td>
+            <td>29-05-2026 |<br>14:00 | Viernes</td>
+            <td>29-05-2026 |<br>17:00 | Viernes</td>
+            <td class="col-lugar">Oficina SEC</td>
+            <td class="col-evento">RCP Rapido y Facil</td>
+            <td>25</td>
+            <td><span class="badge-estado abierto">Abierto</span></td>
+            <td></td>
+            <td>
+                <!-- El botón real con clase para JS y el cartelito de ayuda al pasar el mouse -->
+                <button class="btn-inscribirse accion-inscribir" title="Inscribirse">
+                    <img src="img/checkcuadrado.svg" alt="Inscribirme">
+                </button>
+            </td>
+        </tr>
+<div>
+
+</main>
+
+</body>
+</html>
