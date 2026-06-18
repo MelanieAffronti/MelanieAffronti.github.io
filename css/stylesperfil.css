@@ -891,3 +891,47 @@ width: 520px;
     max-width: 1147px;   /* Que no sea más ancho que tus otras columnas */
     margin: 40px auto;   /* ¡ESTA ES LA CLAVE! El "auto" a los costados centra el bloque */
 }
+
+
+
+/* ====================================
+   FOOTER SEC
+   ==================================== */
+.footer-sec {
+    background-color: #acacac;
+    width: 100%;
+    border-top: 1px solid #d9d9d9;
+    margin-top: auto; /* ESTA ES LA MAGIA QUE LO EMPUJA AL FONDO */
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-footer {
+    display: flex;
+    width: 200px;
+    margin: auto;
+}
+
+.redes-sociales {
+    display: flex;
+    padding-left: 100px; /* Si ves que queda muy separado, podés achicar este valor */
+    gap: 15px;
+}
+
+.redes-sociales img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.redes-sociales img:hover {
+    transform: scale(1.1);
+}

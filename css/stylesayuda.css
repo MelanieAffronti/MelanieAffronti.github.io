@@ -367,3 +367,317 @@ body {
     animation: deslizarDesdeArriba 0.8s ease-out; 
 }
 .modal-contenido { animation: deslizarDesdeArriba 0.8s ease-out; }
+
+
+/* ====================================
+   FOOTER SEC
+   ==================================== */
+.footer-sec {
+    background-color: #acacac;
+    width: 100%;
+    border-top: 1px solid #d9d9d9;
+    margin-top: auto; /* ESTA ES LA MAGIA QUE LO EMPUJA AL FONDO */
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-footer {
+    display: flex;
+    width: 200px;
+    margin: auto;
+}
+
+.redes-sociales {
+    display: flex;
+    padding-left: 100px; /* Si ves que queda muy separado, podés achicar este valor */
+    gap: 15px;
+}
+
+.redes-sociales img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.redes-sociales img:hover {
+    transform: scale(1.1);
+}
+
+
+/* ====================================
+   MODO CELULAR (RESPONSIVE) - PULIDO
+   ==================================== */
+@media (max-width: 768px) {
+    
+    /* 1. HEADER: Ocultamos el texto y achicamos paddings */
+    .logo-container p {
+        display: none; /* Chau texto "Fundación Sé El Cambio" */
+    }
+    .header-principal {
+        padding: 10px 20px; /* Ajustamos para que quede compacto */
+    }
+    .logo-container img {
+        height: 60px; /* Achicamos un poco el logo para celular */
+    }
+
+    /* 2. MENÚ: Centrado y sin que se aplasten las cajas */
+    .menu-principal {
+        padding: 0; 
+        justify-content: center; /* Centra el menú completo */
+    }
+    .menu-principal ul {
+        gap: 15px; /* Distancia ideal entre botones */
+        justify-content: center;
+        padding-left: 0;
+    }
+    .menu-principal a {
+        padding: 0 10px; /* Mantiene la forma del rectangulo activo */
+        font-size: 11px; /* Letra un toque más chica para que respiren */
+    }
+    .menu-principal a.activo {
+        height: 105px; /* Ajuste sutil a la pestaña activa en celu */
+    }
+
+/* 2. CONTENEDOR GENERAL */
+    .contenedor-ayuda {
+        width: 92%;
+        margin: 20px auto;
+        padding-bottom: 40px;
+    }
+
+    /* 3. HERO Y BOTONES CIRCULARES (Se apilan verticalmente) */
+    .ayuda-hero {
+        margin-top: 40px;
+        margin-bottom: 50px;
+    }
+    .titulo-ayuda {
+        font-size: 26px;
+        margin-bottom: 35px;
+    }
+    .ayuda-botones {
+        flex-direction: column; /* Pasa de horizontal a vertical */
+        align-items: center;
+        gap: 30px; /* Separación prudente entre cada esfera */
+        margin-bottom: 40px;
+    }
+    .circulo-icono {
+        width: 100px;
+        height: 100px; /* Reducimos un pelín el diámetro para pantallas chicas */
+    }
+    .circulo-icono img {
+        width: 45px;
+    }
+    .etiqueta-verde {
+        font-size: 13px;
+        padding: 6px 14px;
+    }
+
+    /* 4. ACORDEONES (Preguntas y Reglas) */
+    .seccion-contenido {
+        margin-bottom: 40px;
+        scroll-margin-top: 20px; /* Ajuste para el anclaje suave */
+    }
+    .titulo-seccion {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .acordeon-item {
+        padding: 15px 20px;
+        border-radius: 14px;
+    }
+    .acordeon-item span {
+        font-size: 14px; /* Texto un toque más compacto para el celu */
+    }
+
+    /* 5. CONTACTOS (De 2 columnas a 1 columna vertical) */
+    .caja-contactos {
+        flex-direction: column; /* Las columnas de escritorio se apilan */
+        padding: 25px 20px;
+        gap: 30px; /* Espacio entre los bloques colapsados */
+    }
+    .columna-contacto {
+        gap: 25px;
+    }
+    .item-contacto h4 {
+        font-size: 15px;
+        border-bottom: 1px solid #e4e4e4; /* Linita sutil para separar sectores en móvil */
+        padding-bottom: 4px;
+    }
+    .item-contacto p {
+        font-size: 13px;
+        text-align: left; /* Desactivamos el justify en celulares para mejorar legibilidad */
+    }
+
+    /* 6. FORMULARIO NETLIFY EN CELULAR */
+    .caja-formulario {
+        padding: 25px 20px;
+    }
+    .desc-formulario {
+        font-size: 13px;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+    .fila-form {
+        flex-direction: column; /* "Nombre" y "Correo" se ponen uno abajo del otro */
+        gap: 15px;
+        margin-bottom: 0;
+    }
+    .campo {
+        width: 100%;
+    }
+    .campo input, .campo textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .btn-enviar {
+        width: 100%; /* El botón pasa a ocupar todo el ancho de la caja en celular */
+        padding: 12px;
+        margin-top: 10px;
+    }
+
+
+    
+
+}
+
+/* ====================================
+   DOBLE DESPLEGABLE (LAS PREGUNTAS INTERNAS)
+   ==================================== */
+
+.sub-acordeon-grupo {
+    border-bottom: 1px solid #eaeaea; /* Linita separadora entre preguntas */
+}
+.sub-acordeon-grupo:last-child {
+    border-bottom: none;
+}
+
+.sub-acordeon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.sub-acordeon-item span {
+    font-size: 14.5px;
+    color: #4a4a4a;
+    display: inline-block;
+    transition: transform 0.3s ease, font-weight 0.3s ease, color 0.3s ease;
+}
+
+.flecha-icono-sub {
+    width: 14px;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
+}
+
+/* LA ANIMACIÓN DE FIGMA: Se va a la izquierda y se pone verde/negrita */
+.sub-acordeon-item.activo span {
+    transform: translateX(-5px);
+    font-weight: 700;
+    color: #1c6758; /* El verde de SEC */
+}
+.sub-acordeon-item.activo .flecha-icono-sub {
+    transform: rotate(180deg);
+}
+
+/* El panel de la respuesta */
+.sub-acordeon-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.sub-contenido {
+    padding: 0 10px 20px 10px; /* Sangría a la respuesta */
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #555;
+}
+.sub-contenido p {
+    margin-bottom: 8px;
+}
+.sub-contenido p:last-child {
+    margin-bottom: 0;
+}
+
+/* ====================================
+   CORRECCIÓN: CAJÓN CONTENEDOR (CARD)
+   ==================================== */
+
+/* 1. El Grupo es ahora el contenedor principal de todo */
+.acordeon-grupo {
+    background-color: #fafafa; /* Fondo general para cuando se abre */
+    border-radius: 18px;
+    margin-bottom: 1px; /* Separación entre las categorías grandes */
+    overflow: hidden; /* LA MAGIA: Impide que las preguntas se salgan de los bordes redondeados */
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.05); /* Sombrita para que resalte del fondo gris de tu página */
+}
+
+/* 2. El botón del título principal */
+.acordeon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    background-color: #ffffff; /* Título principal en blanco para que destaque */
+    margin-bottom: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Le sacamos el border-radius porque ahora lo maneja el acordeon-grupo */
+}
+
+/* Cuando se abre, le ponemos una linita sutil abajo del título */
+.acordeon-item.activo {
+    border-bottom: 1px solid #eaeaea; 
+}
+
+/* 3. El panel que baja (ahora hereda todo del grupo) */
+.acordeon-panel {
+    max-height: 0;
+    overflow: hidden;
+    background-color: transparent; /* Usa el fondo del grupo */
+    transition: max-height 0.35s ease-out;
+}
+
+/* 4. Acomodamos las preguntas para que respeten el margen del título */
+.acordeon-contenido-interno {
+    padding: 10px 25px 20px 25px; /* Los 25px laterales hacen que el texto se alinee perfecto con el título de arriba */
+}
+
+/* ====================================
+   ESTILO DE LISTAS INTERNAS (FIGMA)
+   ==================================== */
+
+.lista-reglas {
+    list-style: none; /* Le saca el puntito clásico de la lista si querés que quede limpio */
+    padding: 0;
+    margin: 0;
+}
+
+.lista-reglas li {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #4a4a4a; /* Color suave para la descripción */
+    margin-bottom: 12px; /* Separación sutil entre cada regla */
+}
+
+.lista-reglas li:last-child {
+    margin-bottom: 0; /* Saca el espacio libre al último ítem */
+}
+
+/* Fuerza el estilo del título de cada ítem en negrita */
+.lista-reglas li strong {
+    font-weight: 700;
+    color: #263531; /* Podés usar el verde SEC o dejarlo en negro/gris oscuro (#2e2e2e) según tu paleta */
+    margin-right: 4px; /* Mini separación antes de que empiece la descripción normal */
+}

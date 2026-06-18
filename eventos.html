@@ -78,15 +78,15 @@
     <tbody>
         <!-- Fila 1: EVENTO DISPONIBLE (SÍ funciona como botón) -->
         <tr>
-            <td>6690</td>
-            <td>31-05-2026 |<br>18:30 | Domingo</td>
-            <td>31-05-2026 |<br>22:30 | Domingo</td>
-            <td class="col-lugar">Ciudad Cultural Konex</td>
-            <td class="col-evento">La bomba del tiempo</td>
-            <td>4</td>
-            <td><span class="badge-estado abierto">Abierto</span></td>
-            <td>10000</td>
-            <td>
+            <td data-label="ID">6690</td>
+<td data-label="Fecha Ingreso">31-05-2026 |<br>18:30 | Domingo</td>
+<td data-label="Fecha Salida">31-05-2026 |<br>22:30 | Domingo</td>
+<td class="col-lugar" data-label="Lugar">Ciudad Cultural Konex</td>
+<td class="col-evento" data-label="Evento">La bomba del tiempo</td>
+<td data-label="Vol.">4</td>
+<td data-label="Estado"><span class="badge-estado abierto">Abierto</span></td>
+<td data-label="Viático">10000</td>
+<td>
                 <!-- El botón real con clase para JS y el cartelito de ayuda al pasar el mouse -->
                 <button class="btn-inscribirse accion-inscribir" title="Inscribirse">
                     <img src="img/checkcuadrado.svg" alt="Inscribirme">
@@ -94,290 +94,243 @@
             </td>
         </tr>
 
-        <!-- Fila 2: YA INSCRIPTO (NO es botón, solo imagen con texto flotante) -->
-        <tr class="fila-inscripto"> 
-            
-            <td>6689</td>
-            <td>30-05-2026 |<br>15:00 | Domingo</td>
-            <td>01-06-2026 |<br>01:00 | Lunes</td>
-            <td class="col-evento abrir-modal" data-target="modal-megadeth" style="cursor: pointer; text-decoration: none;">Tecnópolis QR</td>
-            <td class="col-evento abrir-modal" data-target="modal-megadeth" style="cursor: pointer; text-decoration: none;">MEGADETH</td>
-            <td>28</td>
-            <td>
-                <div class="grupo-estado">
-                    <span class="badge-estado abierto">Abierto</span>
-                    <span class="badge-estado inscripto">Estás Inscripto</span>
-                </div>
-            </td>
-            <td>30000</td>
-            <td>
-                <!-- Sacamos el <button> y usamos el atributo title para el texto flotante nativo -->
-                <div class="icono-estatico" title="Ya estás inscripto en este evento">
-                    <img src="img/Check.svg" alt="Confirmado">
-                </div>
-            </td>
-        </tr>
+       <tr class="fila-inscripto"> 
+    <td data-label="ID">6689</td>
+    <td data-label="Fecha Ingreso">30-05-2026 |<br>15:00 | Domingo</td>
+    <td data-label="Fecha Salida">01-06-2026 |<br>01:00 | Lunes</td>
+    <td class="col-evento abrir-modal" data-target="modal-megadeth" style="cursor: pointer; text-decoration: none;" data-label="Lugar">Tecnópolis QR</td>
+    <td class="col-evento abrir-modal" data-target="modal-megadeth" style="cursor: pointer; text-decoration: none;" data-label="Evento">MEGADETH</td>
+    <td data-label="Vol.">28</td>
+    <td data-label="Estado">
+        <div class="grupo-estado">
+            <span class="badge-estado abierto">Abierto</span>
+            <span class="badge-estado inscripto">Estás Inscripto</span>
+        </div>
+    </td>
+    <td data-label="Viático">30000</td>
+    <td>
+        <div class="icono-estatico" title="Ya estás inscripto en este evento">
+            <img src="img/Check.svg" alt="Confirmado">
+        </div>
+    </td>
+</tr>
 
-        <!-- Fila 3: COMPLETO Y YA INSCRIPTO (NO es botón, solo estático) -->
-        <tr>
-            <td>6687</td>
-            <td>26-05-2026 |<br>16:30 | Martes</td>
-            <td>27-05-2026 |<br>01:00 | Miércoles</td>
-            <td class="col-lugar">Movistar Arena</td>
-            <td class="col-evento">Soda Stereo</td>
-            <td>15</td>
-            <td>
-                <div class="grupo-estado">
-                    <span class="badge-estado completo">Completo</span>
-                    <span class="badge-estado inscripto">Estás Inscripto</span>
-                </div>
-            </td>
-            <td>16000</td>
-            <td>
-                <div class="icono-estatico" title="Ya estás inscripto en este evento">
-                    <img src="img/Check.svg" alt="Confirmado">
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6687</td>
+    <td data-label="Fecha Ingreso">26-05-2026 |<br>16:30 | Martes</td>
+    <td data-label="Fecha Salida">27-05-2026 |<br>01:00 | Miércoles</td>
+    <td class="col-lugar" data-label="Lugar">Movistar Arena</td>
+    <td class="col-evento" data-label="Evento">Soda Stereo</td>
+    <td data-label="Vol.">15</td>
+    <td data-label="Estado">
+        <div class="grupo-estado">
+            <span class="badge-estado completo">Completo</span>
+            <span class="badge-estado inscripto">Estás Inscripto</span>
+        </div>
+    </td>
+    <td data-label="Viático">16000</td>
+    <td>
+        <div class="icono-estatico" title="Ya estás inscripto en este evento">
+            <img src="img/Check.svg" alt="Confirmado">
+        </div>
+    </td>
+</tr>
 
-        <!-- 1. MOVISTAR ARENA (17:30 a 01:00h) -->
-        <tr>
-            <td>6686</td>
-            <td>22-05-2026 |<br>17:30 | Viernes</td>
-            <td>23-05-2026 |<br>01:00 | Sábado</td>
-            <td class="col-lugar">Movistar Arena</td>
-            <td class="col-evento">Tan Bionica</td>
-            <td>18</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>16000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-                   
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6686</td>
+    <td data-label="Fecha Ingreso">22-05-2026 |<br>17:30 | Viernes</td>
+    <td data-label="Fecha Salida">23-05-2026 |<br>01:00 | Sábado</td>
+    <td class="col-lugar" data-label="Lugar">Movistar Arena</td>
+    <td class="col-evento" data-label="Evento">Tan Bionica</td>
+    <td data-label="Vol.">18</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">16000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        
-        <tr>
-            <td>6685</td>
-            <td>14-05-2026 |<br>17:30 | Jueves</td>
-            <td>15-05-2026 |<br>01:00 | Viernes</td>
-            <td class="col-evento abrir-modal" data-target="modal-arjona" style="cursor: pointer; text-decoration: none;">Movistar Arena</td>
-            <td class="col-evento abrir-modal" data-target="modal-arjona" style="cursor: pointer; text-decoration: none;">Ricardo Arjona</td>
-            <td>10</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>16000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-                 
-                </div>
-            </td>
-            
-        </tr>
+<tr>
+    <td data-label="ID">6685</td>
+    <td data-label="Fecha Ingreso">14-05-2026 |<br>17:30 | Jueves</td>
+    <td data-label="Fecha Salida">15-05-2026 |<br>01:00 | Viernes</td>
+    <td class="col-evento abrir-modal" data-target="modal-arjona" style="cursor: pointer; text-decoration: none;" data-label="Lugar">Movistar Arena</td>
+    <td class="col-evento abrir-modal" data-target="modal-arjona" style="cursor: pointer; text-decoration: none;" data-label="Evento">Ricardo Arjona</td>
+    <td data-label="Vol.">10</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">16000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 3. ESTADIO VÉLEZ SARSFIELD (14:00 a 01:00h) -->
-        <tr>
-            <td>6684</td>
-            <td>09-05-2026 |<br>15:00 | Sábado</td>
-            <td>10-05-2026 |<br>01:00 | Domingo</td>
-            <td class="col-lugar">Estadio FERRO</td>
-            <td class="col-evento">No Te Va Gustar</td>
-            <td>30</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>25000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-                 
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6684</td>
+    <td data-label="Fecha Ingreso">09-05-2026 |<br>15:00 | Sábado</td>
+    <td data-label="Fecha Salida">10-05-2026 |<br>01:00 | Domingo</td>
+    <td class="col-lugar" data-label="Lugar">Estadio FERRO</td>
+    <td class="col-evento" data-label="Evento">No Te Va Gustar</td>
+    <td data-label="Vol.">30</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">25000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 4. CIUDAD CULTURAL KONEX (Tarde/Noche alternativo) -->
-        <tr>
-            <td>6683</td>
-            <td>04-05-2026 |<br>18:30 | Lunes</td>
-            <td>04-05-2026 |<br>23:00 | Lunes</td>
-            <td class="col-lugar">Ciudad Cultural Konex</td>
-            <td class="col-evento">La Bomba del Tiempo</td>
-            <td>4</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>10000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-                   
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6683</td>
+    <td data-label="Fecha Ingreso">04-05-2026 |<br>18:30 | Lunes</td>
+    <td data-label="Fecha Salida">04-05-2026 |<br>23:00 | Lunes</td>
+    <td class="col-lugar" data-label="Lugar">Ciudad Cultural Konex</td>
+    <td class="col-evento" data-label="Evento">La Bomba del Tiempo</td>
+    <td data-label="Vol.">4</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">10000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 5. MOVISTAR ARENA (17:30 a 01:00h) -->
-        <tr>
-            <td>6682</td>
-            <td>28-04-2026 |<br>17:30 | Martes</td>
-            <td>29-04-2026 |<br>01:00 | Miércoles</td>
-            <td class="col-lugar">Movistar Arena</td>
-            <td class="col-evento">Chase Atlantic</td>
-            <td>20</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>16000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-           
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6682</td>
+    <td data-label="Fecha Ingreso">28-04-2026 |<br>17:30 | Martes</td>
+    <td data-label="Fecha Salida">29-04-2026 |<br>01:00 | Miércoles</td>
+    <td class="col-lugar" data-label="Lugar">Movistar Arena</td>
+    <td class="col-evento" data-label="Evento">Chase Atlantic</td>
+    <td data-label="Vol.">20</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">16000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 6. ESTADIO RIVER PLATE (13:00 a 01:00h) -->
-        <tr>
-            <td>6681</td>
-            <td>24-04-2026 |<br>13:00 | Viernes</td>
-            <td>25-04-2026 |<br>01:00 | Sábado</td>
-            <td class="col-lugar">Estadio River Plate</td>
-            <td class="col-evento">Airbag</td>
-            <td>40</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>35000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-            
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6681</td>
+    <td data-label="Fecha Ingreso">24-04-2026 |<br>13:00 | Viernes</td>
+    <td data-label="Fecha Salida">25-04-2026 |<br>01:00 | Sábado</td>
+    <td class="col-lugar" data-label="Lugar">Estadio River Plate</td>
+    <td class="col-evento" data-label="Evento">Airbag</td>
+    <td data-label="Vol.">40</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">35000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 7. ESTADIO VÉLEZ SARSFIELD (14:00 a 01:00h) -->
-        <tr>
-            <td>6680</td>
-            <td>18-04-2026 |<br>14:00 | Sábado</td>
-            <td>19-04-2026 |<br>01:00 | Domingo</td>
-            <td class="col-lugar">Estadio Vélez Sarsfield</td>
-            <td class="col-evento">Wos</td>
-            <td>32</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>28000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-     
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6680</td>
+    <td data-label="Fecha Ingreso">18-04-2026 |<br>14:00 | Sábado</td>
+    <td data-label="Fecha Salida">19-04-2026 |<br>01:00 | Domingo</td>
+    <td class="col-lugar" data-label="Lugar">Estadio Vélez Sarsfield</td>
+    <td class="col-evento" data-label="Evento">Wos</td>
+    <td data-label="Vol.">32</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">28000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 8. CIUDAD CULTURAL KONEX (Formato mediodía/tarde) -->
-        <tr>
-            <td>6679</td>
-            <td>12-04-2026 |<br>12:00 | Domingo</td>
-            <td>12-04-2026 |<br>19:00 | Domingo</td>
-            <td class="col-lugar">Ciudad Cultural Konex</td>
-            <td class="col-evento">Konex Tarde</td>
-            <td>4</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>10000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
+<tr>
+    <td data-label="ID">6679</td>
+    <td data-label="Fecha Ingreso">12-04-2026 |<br>12:00 | Domingo</td>
+    <td data-label="Fecha Salida">12-04-2026 |<br>19:00 | Domingo</td>
+    <td class="col-lugar" data-label="Lugar">Ciudad Cultural Konex</td>
+    <td class="col-evento" data-label="Evento">Konex Tarde</td>
+    <td data-label="Vol.">4</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">10000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6678</td>
+    <td data-label="Fecha Ingreso">08-04-2026 |<br>17:30 | Miércoles</td>
+    <td data-label="Fecha Salida">09-04-2026 |<br>01:00 | Jueves</td>
+    <td class="col-lugar" data-label="Lugar">Movistar Arena</td>
+    <td class="col-evento" data-label="Evento">Ke Personajes</td>
+    <td data-label="Vol.">15</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">16000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 9. MOVISTAR ARENA (17:30 a 01:00h) -->
-        <tr>
-            <td>6678</td>
-            <td>08-04-2026 |<br>17:30 | Miércoles</td>
-            <td>09-04-2026 |<br>01:00 | Jueves</td>
-            <td class="col-lugar">Movistar Arena</td>
-            <td class="col-evento">Ke Personajes</td>
-            <td>15</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>16000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-           
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6677</td>
+    <td data-label="Fecha Ingreso">03-04-2026 |<br>13:00 | Viernes</td>
+    <td data-label="Fecha Salida">04-04-2026 |<br>01:00 | Sábado</td>
+    <td class="col-lugar" data-label="Lugar">Estadio River Plate</td>
+    <td class="col-evento" data-label="Evento">Coldplay</td>
+    <td data-label="Vol.">35</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">35000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 10. ESTADIO RIVER PLATE (13:00 a 01:00h) -->
-        <tr>
-            <td>6677</td>
-            <td>03-04-2026 |<br>13:00 | Viernes</td>
-            <td>04-04-2026 |<br>01:00 | Sábado</td>
-            <td class="col-lugar">Estadio River Plate</td>
-            <td class="col-evento">Coldplay</td>
-            <td>35</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>35000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-         
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6676</td>
+    <td data-label="Fecha Ingreso">28-03-2026 |<br>14:00 | Sábado</td>
+    <td data-label="Fecha Salida">29-03-2026 |<br>01:00 | Domingo</td>
+    <td class="col-lugar" data-label="Lugar">Estadio Vélez Sarsfield</td>
+    <td class="col-evento" data-label="Evento">La Renga</td>
+    <td data-label="Vol.">40</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">28000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 11. ESTADIO VÉLEZ SARSFIELD (14:00 a 01:00h) -->
-        <tr>
-            <td>6676</td>
-            <td>28-03-2026 |<br>14:00 | Sábado</td>
-            <td>29-03-2026 |<br>01:00 | Domingo</td>
-            <td class="col-lugar">Estadio Vélez Sarsfield</td>
-            <td class="col-evento">La Renga</td>
-            <td>40</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>28000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
+<tr>
+    <td data-label="ID">6675</td>
+    <td data-label="Fecha Ingreso">23-03-2026 |<br>18:30 | Lunes</td>
+    <td data-label="Fecha Salida">23-03-2026 |<br>23:00 | Lunes</td>
+    <td class="col-lugar" data-label="Lugar">Ciudad Cultural Konex</td>
+    <td class="col-evento" data-label="Evento">La Bomba del Tiempo</td>
+    <td data-label="Vol.">6</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">10000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6674</td>
+    <td data-label="Fecha Ingreso">19-03-2026 |<br>17:30 | Jueves</td>
+    <td data-label="Fecha Salida">20-03-2026 |<br>01:00 | Viernes</td>
+    <td class="col-lugar" data-label="Lugar">Movistar Arena</td>
+    <td class="col-evento" data-label="Evento">Babasonicos</td>
+    <td data-label="Vol.">16</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">16000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
-        <!-- 12. CIUDAD CULTURAL KONEX (18:30 a 23:00h) -->
-        <tr>
-            <td>6675</td>
-            <td>23-03-2026 |<br>18:30 | Lunes</td>
-            <td>23-03-2026 |<br>23:00 | Lunes</td>
-            <td class="col-lugar">Ciudad Cultural Konex</td>
-            <td class="col-evento">La Bomba del Tiempo</td>
-            <td>6</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>10000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-        
-                </div>
-            </td>
-        </tr>
-
-        <!-- 13. MOVISTAR ARENA (17:30 a 01:00h) -->
-        <tr>
-            <td>6674</td>
-            <td>19-03-2026 |<br>17:30 | Jueves</td>
-            <td>20-03-2026 |<br>01:00 | Viernes</td>
-            <td class="col-lugar">Movistar Arena</td>
-            <td class="col-evento">Babasonicos</td>
-            <td>16</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>16000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-               
-                </div>
-            </td>
-        </tr>
-
-        <!-- 14. ESTADIO RIVER PLATE (13:00 a 01:00h) -->
-        <tr>
-            <td>6673</td>
-            <td>13-03-2026 |<br>13:00 | Viernes</td>
-            <td>14-03-2026 |<br>01:00 | Sábado</td>
-            <td class="col-lugar">Estadio River Plate</td>
-            <td class="col-evento">Red Hot Chili Peppers</td>
-            <td>42</td>
-            <td><span class="badge-estado completo">Completo</span></td>
-            <td>35000</td>
-            <td>
-                <div class="icono-estatico" title="Evento completo">
-              
-                </div>
-            </td>
-        </tr>
+<tr>
+    <td data-label="ID">6673</td>
+    <td data-label="Fecha Ingreso">13-03-2026 |<br>13:00 | Viernes</td>
+    <td data-label="Fecha Salida">14-03-2026 |<br>01:00 | Sábado</td>
+    <td class="col-lugar" data-label="Lugar">Estadio River Plate</td>
+    <td class="col-evento" data-label="Evento">Red Hot Chili Peppers</td>
+    <td data-label="Vol.">42</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">35000</td>
+    <td>
+        <div class="icono-estatico" title="Evento completo"></div>
+    </td>
+</tr>
 
     </tbody>
 </table>

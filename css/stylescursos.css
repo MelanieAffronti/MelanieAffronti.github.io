@@ -134,6 +134,7 @@ body {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
     padding: 40px 60px;
     min-height: 800px;
+    
 }
 
 /* ====================================
@@ -330,3 +331,167 @@ body {
     opacity: 0.9; /* Un tono firme pero que delata que es un estado fijo */
 }
 
+
+/* ====================================
+   FOOTER SEC
+   ==================================== */
+.footer-sec {
+    background-color: #acacac;
+    width: 100%;
+    border-top: 1px solid #d9d9d9;
+    margin-top: auto; /* ESTA ES LA MAGIA QUE LO EMPUJA AL FONDO */
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-footer {
+    display: flex;
+    width: 200px;
+    margin: auto;
+}
+
+.redes-sociales {
+    display: flex;
+    padding-left: 100px; /* Si ves que queda muy separado, podés achicar este valor */
+    gap: 15px;
+}
+
+.redes-sociales img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.redes-sociales img:hover {
+    transform: scale(1.1);
+}
+
+/* ====================================
+   MODO CELULAR (RESPONSIVE) - PULIDO
+   ==================================== */
+@media (max-width: 768px) {
+    
+    /* 1. HEADER: Ocultamos el texto y achicamos paddings */
+    .logo-container p {
+        display: none; /* Chau texto "Fundación Sé El Cambio" */
+    }
+    .header-principal {
+        padding: 10px 20px; /* Ajustamos para que quede compacto */
+    }
+    .logo-container img {
+        height: 60px; /* Achicamos un poco el logo para celular */
+    }
+
+    /* 2. MENÚ: Centrado y sin que se aplasten las cajas */
+    .menu-principal {
+        padding: 0; 
+        justify-content: center; /* Centra el menú completo */
+    }
+    .menu-principal ul {
+        gap: 15px; /* Distancia ideal entre botones */
+        justify-content: center;
+        padding-left: 0;
+    }
+    .menu-principal a {
+        padding: 0 10px; /* Mantiene la forma del rectangulo activo */
+        font-size: 11px; /* Letra un toque más chica para que respiren */
+    }
+    .menu-principal a.activo {
+        height: 105px; /* Ajuste sutil a la pestaña activa en celu */
+    }
+
+    /* 3. CONTENEDORES: Márgenes más amigables */
+    .contenedor-cursos, .contenedor-ayuda {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px 55px;
+    }
+
+    /* 4. BUSCADOR Y TÍTULO */
+    .cabecera-lista {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center; /* Centramos todo */
+        text-align: center;
+    }
+    .buscador {
+        width: 100%;
+    }
+
+    /* 5. TARJETAS DE EVENTOS (Estética limpia) */
+    .tabla-sec thead {
+        display: none; 
+    }
+    .tabla-sec {
+        border: none; /* ¡Chau línea fea contenedora gigante! */
+    }
+    .tabla-sec, .tabla-sec tbody, .tabla-sec tr, .tabla-sec td {
+        display: block;
+        width: 100%;
+    }
+
+    /* La Tarjeta en sí */
+    .tabla-sec tr {
+        margin-bottom: 20px;
+        border: 1px solid #e4e4e4; /* Borde súper suave y clarito */
+        border-radius: 15px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05); /* Sombrita para que resalte del fondo */
+        background-color: #fff !important; 
+        padding: 15px 0; /* Aire arriba y abajo de la tarjeta completa */
+    }
+
+    /* Los datos (renglones adentro de la tarjeta con línea divisoria) */
+    .tabla-sec td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none; 
+        border-bottom: 1px solid #eee; /* Volvemos a poner la línea divisoria sutil */
+        padding: 8px 20px; /* Un pelín más de aire para que la línea no ahogue el texto */
+        text-align: right; 
+    }
+
+    /* Evitamos que el último dato antes del botón tenga línea doble */
+    .tabla-sec td:nth-last-child(2) {
+        border-bottom: none;
+    }
+
+    /* Las etiquetas de la izquierda */
+    .tabla-sec td::before {
+        content: attr(data-label); 
+        font-weight: 600;
+        color: #747474; /* Gris oscuro para las etiquetas, así resalta más el dato negro a la derecha */
+        text-align: left;
+        flex: 1; 
+    }
+
+    /* 6. BOTÓN DE INSCRIBIRSE CENTRADO */
+    .tabla-sec td:last-child {
+        justify-content: center; /* Centra el botón en su renglón */
+        margin-top: 15px; /* Lo separa un poco de los datos de arriba */
+        padding-bottom: 5px;
+        border-top: 1px solid #eee; /* Le ponemos una linita sutil solo para separarlo de la info */
+    }
+    
+    /* Aseguramos que la etiqueta fantasma no empuje al botón */
+    .tabla-sec td:last-child::before {
+        display: none; 
+    }
+
+    /* Corregimos textos que venían alineados a la izquierda de la PC */
+    .col-lugar, .col-evento, .align-izq {
+        text-align: right;
+    }
+}
+
+.oculto {
+    display: none !important;
+}

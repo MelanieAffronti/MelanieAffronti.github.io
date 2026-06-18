@@ -54,49 +54,220 @@
             <h2 class="titulo-eventos">Lista de Capacitaciones</h2>
             
             <div class="buscador">
-    <input type="text" id="input-buscador" placeholder="Buscar Curso">
-    <img src="img/buscar.svg" alt="Buscar">
-</div>
-</div>
-            
-        </div>
-
-        <div class="tabla-contenedor">
+                <input type="text" id="input-buscador" placeholder="Buscar Curso">
+                <img src="img/buscar.svg" alt="Buscar">
+            </div>
+        </div> <div class="tabla-contenedor">
             <table class="tabla-sec">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Fecha Ingreso</th>
-            <th>Fecha Salida</th>
-            <th class="align-izq">Lugar</th>
-            <th class="align-izq">Evento</th>
-            <th>Vol.</th>
-            <th>Estado</th>
-            <th>Viático</th>
-            <th></th> 
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Fila 1: EVENTO DISPONIBLE (SÍ funciona como botón) -->
-        <tr>
-            <td>1000</td>
-            <td>29-05-2026 |<br>14:00 | Viernes</td>
-            <td>29-05-2026 |<br>17:00 | Viernes</td>
-            <td class="col-lugar">Oficina SEC</td>
-            <td class="col-evento">RCP Rapido y Facil</td>
-            <td>25</td>
-            <td><span class="badge-estado abierto">Abierto</span></td>
-            <td></td>
-            <td>
-                <!-- El botón real con clase para JS y el cartelito de ayuda al pasar el mouse -->
-                <button class="btn-inscribirse accion-inscribir" title="Inscribirse">
-                    <img src="img/checkcuadrado.svg" alt="Inscribirme">
-                </button>
-            </td>
-        </tr>
-<div>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Fecha Salida</th>
+                        <th class="align-izq">Lugar</th>
+                        <th class="align-izq">Curso</th>
+                        <th>Vol.</th>
+                        <th>Estado</th>
+                        <th>Viático</th>
+                        <th></th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="ID">1010</td>
+<td data-label="Fecha Ingreso">29-05-2026 |<br>14:00 | Viernes</td>
+<td data-label="Fecha Salida">29-05-2026 |<br>17:00 | Viernes</td>
+<td class="col-lugar" data-label="Lugar">Oficina SEC</td>
+<td class="col-evento" data-label="Curso">RCP Rapido y Facil</td>
+<td data-label="Vol.">15</td>
+<td data-label="Estado"><span class="badge-estado abierto">Abierto</span></td>
+<td data-label="Viático"></td>
+<td>
+                            <button class="btn-inscribirse accion-inscribir" title="Inscribirse">
+                                <img src="img/checkcuadrado.svg" alt="Inscribirme">
+                            </button>
+                        </td>
+                    </tr>
 
-</main>
+                    <tr>
+    <td data-label="ID">1009</td>
+    <td data-label="Fecha Ingreso">20-05-2026 |<br>10:00 | Miércoles</td>
+    <td data-label="Fecha Salida">20-05-2026 |<br>13:00 | Miércoles</td>
+    <td class="col-lugar" data-label="Lugar">Oficina SEC</td>
+    <td class="col-evento" data-label="Curso">RCP Rapido y Facil</td>
+    <td data-label="Vol.">15</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+
+
+<tr>
+    <td data-label="ID">1008</td>
+    <td data-label="Fecha Ingreso">15-04-2026 |<br>09:00 | Jueves</td>
+    <td data-label="Fecha Salida">15-04-2026 |<br>12:00 | Jueves</td>
+    <td class="col-lugar" data-label="Lugar">Virtual</td>
+    <td class="col-evento" data-label="Curso">Primeros Auxilios Pediátricos</td>
+    <td data-label="Vol.">35</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td data-label="ID">1007</td>
+    <td data-label="Fecha Ingreso">10-04-2026 |<br>15:00 | Viernes</td>
+    <td data-label="Fecha Salida">10-04-2026 |<br>18:00 | Viernes</td>
+    <td class="col-lugar" data-label="Lugar">Virtual</td>
+    <td class="col-evento" data-label="Curso">Intoxicaciones</td>
+    <td data-label="Vol.">20</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td data-label="ID">1006</td>
+    <td data-label="Fecha Ingreso">25-03-2026 |<br>10:00 | Miércoles</td>
+    <td data-label="Fecha Salida">25-03-2026 |<br>14:00 | Miércoles</td>
+    <td class="col-lugar" data-label="Lugar">Oficina SEC</td>
+    <td class="col-evento" data-label="Curso">PPAA Basico</td>
+    <td data-label="Vol.">25</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+    
+</tr>
+
+<tr>
+    <td data-label="ID">1005</td>
+    <td data-label="Fecha Ingreso">18-03-2026 |<br>09:00 | Miércoles</td>
+    <td data-label="Fecha Salida">18-03-2026 |<br>13:00 | Miércoles</td>
+    <td class="col-lugar" data-label="Lugar">Oficina SEC</td>
+    <td class="col-evento" data-label="Curso">Trauma practico</td>
+    <td data-label="Vol.">15</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td data-label="ID">1004</td>
+    <td data-label="Fecha Ingreso">18-03-2026 |<br>14:00 | Miercoles</td>
+    <td data-label="Fecha Salida">18-03-2026 |<br>17:00 | Miercoles</td>
+    <td class="col-lugar" data-label="Lugar">Oficina SEC</td>
+    <td class="col-evento" data-label="Curso">Trauma teorico</td>
+    <td data-label="Vol.">25</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td data-label="ID">1003</td>
+    <td data-label="Fecha Ingreso">15-03-2026 |<br>10:00 | Domingo</td>
+    <td data-label="Fecha Salida">15-03-2026 |<br>13:00 | Domingo</td>
+    <td class="col-lugar" data-label="Lugar">Oficina SEC</td>
+    <td class="col-evento" data-label="Curso">PPAA Basico</td>
+    <td data-label="Vol.">25</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td data-label="ID">1002</td>
+    <td data-label="Fecha Ingreso">09-03-2026 |<br>10:00 | Lunes</td>
+    <td data-label="Fecha Salida">09-03-2026 |<br>13:00 | Lunes</td>
+    <td class="col-lugar" data-label="Lugar">Oficina SEC</td>
+    <td class="col-evento" data-label="Curso">Trauma teorico</td>
+    <td data-label="Vol.">25</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td data-label="ID">1001</td>
+    <td data-label="Fecha Ingreso">05-03-2026 |<br>10:00 | Jueves</td>
+    <td data-label="Fecha Salida">05-03-2026 |<br>13:00 | Jueves</td>
+    <td class="col-lugar" data-label="Lugar">Oficina SEC</td>
+    <td class="col-evento" data-label="Curso">Primeros Auxilios Emocionales (PAE)</td>
+    <td data-label="Vol.">20</td>
+    <td data-label="Estado"><span class="badge-estado completo">Completo</span></td>
+    <td data-label="Viático">-</td>
+    <td></td>
+</tr>
+                </tbody>
+            </table>
+        </div> </main> <footer class="footer-sec">
+        <div class="footer-contenido">
+            <div class="logo-footer">
+                <img src="img/logosec.svg" alt="Logo SEC">
+            </div>
+            
+            <div class="redes-sociales">
+                <a href="https://www.instagram.com/sec.socorrismo/" target="_blank">
+                    <img src="img/instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/socorrismo" target="_blank">
+                    <img src="img/Facebook.svg" alt="Facebook">
+                </a>
+                <a href="#">
+                    <img src="img/twitter.svg" alt="X">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+<script>
+/* Buscador de Cursos - Modo Tanque */
+const inputBuscadorCursos = document.getElementById("input-buscador");
+const filasCursos = document.querySelectorAll(".tabla-sec tbody tr");
+
+inputBuscadorCursos.addEventListener("input", function(e) {
+    const textoBusqueda = e.target.value.toLowerCase().trim();
+
+    filasCursos.forEach(fila => {
+        // Agarra TODO el texto de la fila (ID, Curso, Lugar/Modalidad, Fecha...)
+        const contenidoFila = fila.textContent.toLowerCase();
+
+        // Si coincide o está vacío, muestra la fila. Si no, la oculta.
+        if (textoBusqueda === "" || contenidoFila.includes(textoBusqueda)) {
+            fila.classList.remove("oculto");
+        } else {
+            fila.classList.add("oculto");
+        }
+    });
+});
+
+/* ========================================================
+       2. ALERTA NATIVA DE INSCRIPCIÓN (Tu idea de usar el navegador)
+       ======================================================== */
+    const botonesInscribirse = document.querySelectorAll(".btn-inscribirse");
+
+    botonesInscribirse.forEach(boton => {
+        boton.addEventListener("click", function(e) {
+            e.stopPropagation(); // Evita que un click en el botón active también la fila
+            
+            // Buscamos la fila a la que pertenece este botón para sacar el nombre del evento
+            const fila = this.closest("tr");
+            const nombreEvento = fila.querySelector(".col-evento").textContent.trim();
+
+            // Lanzamos la alerta nativa del navegador con saltos de línea (\n)
+            const confirmacion = confirm(`Vas a inscribirte como voluntario para "${nombreEvento}".\nPor favor, verificá tener disponibilidad para esta fecha.\n\n¿Estás seguro que deseas continuar?`);
+
+            if (confirmacion) {
+                // Si el usuario le da a "Aceptar"
+                alert("¡Inscripción confirmada! Ya estás en la lista.");
+                
+                // Opcional: Acá podrías cambiar el diseño del botón para que se vea como el tilde verde fijo
+                // this.outerHTML = `<div class="icono-estatico" title="Ya estás inscripto"><img src="img/Check.svg" alt="Confirmado"></div>`;
+            }
+        });
+    });
+
+</script>
 
 </body>
 </html>
+

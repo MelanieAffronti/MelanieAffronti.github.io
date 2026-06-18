@@ -351,6 +351,7 @@ body {
     font-size: 20px;
     cursor: pointer;
     color: #747474;
+    
 }
 
 /* Dividimos en dos columnas */
@@ -559,3 +560,213 @@ body {
     animation: deslizarDesdeArriba 0.8s ease-out; 
 }
 .modal-contenido { animation: deslizarDesdeArriba 0.8s ease-out; }
+
+/* ====================================
+   MODO CELULAR (RESPONSIVE) - PULIDO
+   ==================================== */
+@media (max-width: 768px) {
+    
+    /* 1. HEADER: Ocultamos el texto y achicamos paddings */
+    .logo-container p {
+        display: none; /* Chau texto "Fundación Sé El Cambio" */
+    }
+    .header-principal {
+        padding: 10px 20px; /* Ajustamos para que quede compacto */
+    }
+    .logo-container img {
+        height: 60px; /* Achicamos un poco el logo para celular */
+    }
+
+    /* 2. MENÚ: Centrado y sin que se aplasten las cajas */
+    .menu-principal {
+        padding: 0; 
+        justify-content: center; /* Centra el menú completo */
+    }
+    .menu-principal ul {
+        gap: 15px; /* Distancia ideal entre botones */
+        justify-content: center;
+        padding-left: 0;
+    }
+    .menu-principal a {
+        padding: 0 10px; /* Mantiene la forma del rectangulo activo */
+        font-size: 11px; /* Letra un toque más chica para que respiren */
+    }
+    .menu-principal a.activo {
+        height: 105px; /* Ajuste sutil a la pestaña activa en celu */
+    }
+
+    /* 3. CONTENEDORES: Márgenes más amigables */
+    .contenedor-cursos, .contenedor-ayuda {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px 15px;
+    }
+
+    /* 4. BUSCADOR Y TÍTULO */
+    .cabecera-lista {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center; /* Centramos todo */
+        text-align: center;
+    }
+    .buscador {
+        width: 100%;
+    }
+
+    /* 5. TARJETAS DE EVENTOS (Estética limpia) */
+    .tabla-sec thead {
+        display: none; 
+    }
+    .tabla-sec {
+        border: none; /* ¡Chau línea fea contenedora gigante! */
+    }
+    .tabla-sec, .tabla-sec tbody, .tabla-sec tr, .tabla-sec td {
+        display: block;
+        width: 100%;
+    }
+
+    /* La Tarjeta en sí */
+    .tabla-sec tr {
+        margin-bottom: 20px;
+        border: 1px solid #e4e4e4; /* Borde súper suave y clarito */
+        border-radius: 15px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05); /* Sombrita para que resalte del fondo */
+        background-color: #fff !important; 
+        padding: 15px 0; /* Aire arriba y abajo de la tarjeta completa */
+    }
+
+    /* Los datos (renglones adentro de la tarjeta con línea divisoria) */
+    .tabla-sec td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none; 
+        border-bottom: 1px solid #eee; /* Volvemos a poner la línea divisoria sutil */
+        padding: 8px 20px; /* Un pelín más de aire para que la línea no ahogue el texto */
+        text-align: right; 
+    }
+
+    /* Evitamos que el último dato antes del botón tenga línea doble */
+    .tabla-sec td:nth-last-child(2) {
+        border-bottom: none;
+    }
+
+    /* Las etiquetas de la izquierda */
+    .tabla-sec td::before {
+        content: attr(data-label); 
+        font-weight: 600;
+        color: #747474; /* Gris oscuro para las etiquetas, así resalta más el dato negro a la derecha */
+        text-align: left;
+        flex: 1; 
+    }
+
+    /* 6. BOTÓN DE INSCRIBIRSE CENTRADO */
+    .tabla-sec td:last-child {
+        justify-content: center; /* Centra el botón en su renglón */
+        margin-top: 15px; /* Lo separa un poco de los datos de arriba */
+        padding-bottom: 5px;
+        border-top: 1px solid #eee; /* Le ponemos una linita sutil solo para separarlo de la info */
+    }
+    
+    /* Aseguramos que la etiqueta fantasma no empuje al botón */
+    .tabla-sec td:last-child::before {
+        display: none; 
+    }
+
+    /* Corregimos textos que venían alineados a la izquierda de la PC */
+    .col-lugar, .col-evento, .align-izq {
+        text-align: right;
+    }
+    
+/* 1. Le damos propiedades de flexbox al contenedor de la tarjeta (el tr) */
+    .tabla-sec tr {
+        display: flex;
+        flex-direction: column; /* Apila los renglones */
+    }
+
+    
+
+    /* El botón de inscribirse o icono estático se queda abajo de todo */
+    .tabla-sec td:last-child {
+        order: 10 !important; 
+    }
+
+/* ====================================
+       7. POPUP / MODAL RESPONSIVE
+       ==================================== */
+    
+    /* El contenedor blanco */
+    .modal-contenido {
+        width: 92% !important; /* Aprovecha el ancho del celular */
+        max-width: 420px;
+        max-height: 85vh; /* Evita que se salga de la pantalla */
+        overflow-y: auto; /* Scroll general si la pantalla del cel es muy enana */
+        padding: 30px 20px !important;
+        
+    }
+
+    /* LA CLAVE: Forzamos a las columnas a apilarse */
+    .modal-columnas {
+        display: flex;
+        flex-direction: column; /* Cambia de horizontal a vertical */
+        gap: 30px; /* Separación ideal entre el bloque de arriba y el de abajo */
+    }
+
+    /* Aseguramos que el mapa de Google se adapte al ancho disponible */
+    .mapa-google {
+        width: 100% !important;
+        height: 180px; /* Un alto controlado para que no te robe toda la pantalla */
+        border-radius: 12px;
+        margin-top: 10px;
+    }
+
+    /* La lista de voluntarios abajo */
+    .lista-personas {
+        max-height: 220px; /* Altura fija para la lista de personas */
+        overflow-y: auto; /* Scroll interno solo para los nombres */
+        padding-right: 5px;
+        border: 1px solid #eee; /* Un borde sutil que enmarque la lista como en Figma */
+        border-radius: 15px;
+        background-color: #fff;
+        padding-top: 15px;
+    }
+
+    /* Ajustamos las filas de las personas adentro del modal */
+    .persona-item {
+        padding: 12px 15px !important;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f6f6f6;
+    }
+
+    
+    .persona-item:last-child {
+        border-bottom: none; /* Le saca la línea al último de la lista */
+    }
+    
+    /* Corrección para el bloque del rol del Encargado en celular */
+    .rol-grupo {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Separa el texto "Encargado" del icono de info (i) */
+    }
+
+    .rol-encargado {
+        display: inline-block !important; /* Le devolvemos la vida por si se ocultó */
+        padding: 3px 8px;
+        border-radius: 6px;
+        
+        font-weight: 600;
+        white-space: nowrap; /* Evita que el texto se rompa en dos renglones */
+    }
+
+    .icono-info img {
+        width: 16px; /* Ajustamos el tamaño del circulito (i) para que no rompa la fila */
+        height: 16px;
+        display: block;
+    }
+
+}
+
