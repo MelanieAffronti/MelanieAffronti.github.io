@@ -1030,6 +1030,37 @@ body {
 }
 
 @media (max-width: 768px) {
+
+
+     /* 1. HEADER: Ocultamos el texto y achicamos paddings */
+    .logo-container p {
+        display: none; /* Chau texto "Fundación Sé El Cambio" */
+    }
+    .header-principal {
+        padding: 10px 20px; /* Ajustamos para que quede compacto */
+    }
+    .logo-container img {
+        height: 60px; /* Achicamos un poco el logo para celular */
+    }
+
+    /* 2. MENÚ: Centrado y sin que se aplasten las cajas */
+    .menu-principal {
+        padding: 0; 
+        justify-content: center; /* Centra el menú completo */
+    }
+    .menu-principal ul {
+        gap: 15px; /* Distancia ideal entre botones */
+        justify-content: center;
+        padding-left: 0;
+    }
+    .menu-principal a {
+        padding: 0 10px; /* Mantiene la forma del rectangulo activo */
+        font-size: 11px; /* Letra un toque más chica para que respiren */
+    }
+    .menu-principal a.activo {
+        height: 105px; /* Ajuste sutil a la pestaña activa en celu */
+    }
+    
 /* ====================================
        7. POPUP / MODAL RESPONSIVE
        ==================================== */
