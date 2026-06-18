@@ -49,215 +49,242 @@
         </ul>
     </nav>
 
-<!-- ESTA ES LA CAJA MADRE -->
-<main class="contenedor-principal">
+<main class="contenedor-perfil">
 
-    <div class="columna-izquierda">
+    <section class="tarjeta-personal">
         
-        <section class="tarjeta-personal">
-    <div class="foto-perfil">
-        <img src="img/perfilcirculo.svg" alt="Foto">
-    </div>
-
-    <div class="info-usuario">
-        <h3>Nombre Apellido</h3>
-        <ul class="datos-lista">
-            <li><strong>Teléfono:</strong> <span class="destacado">01123456789</span></li>
-            <li><strong>Email:</strong> <span class="destacado">example1@gmail.com</span></li>
-            <li><strong>Voluntario:</strong> Activo</li>
-            <li><strong>Ingreso:</strong> 17/06/2025</li>
+        <div class="perfil-superior">
+            <div class="foto-perfil">
+                <img src="img/perfilcirculo.svg" alt="Foto">
+            </div>
+    
+            <div class="info-usuario">
+                <h3>Nombre Apellido</h3>
+                <ul class="datos-lista">
+                    <li><strong>Teléfono:</strong> <span class="destacado">01123456789</span></li>
+                    <li><strong>Email:</strong> <span class="destacado">example1@gmail.com</span></li>
+                    <li><strong>Voluntario:</strong> Activo</li>
+                    <li><strong>Ingreso:</strong> 17/06/2025</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="contenedor-stats">
+            <div class="stat-item" data-tooltip="Eventos">
+                <img src="img/icon chaleco.svg" class="icono-stat" alt="Eventos">
+                <span class="numero-stat">55</span>
+            </div>
+    
+            <div class="stat-item" data-tooltip="Cursos">
+                <img src="img/GAFETE.svg" class="icono-stat" alt="Cursos">
+                <span class="numero-stat">13</span>
+            </div>
+    
+            <div class="stat-item" data-tooltip="Actividad últimos 3 meses">
+                <img src="img/calendario.svg" class="icono-stat" alt="Calendario">
+                <span class="numero-stat">10</span>
+            </div>
+        </div>
+        
+    </section>
+    
+    <article class="tarjeta-proxima-actividad">
+        <div class="fecha-destacada">
+            <span class="dia-numero">14</span>
+            <span class="mes-texto">Mayo</span>
+        </div>
+    
+        <div class="info-actividad">
+            <h4 class="titulo-actividad">TU PRÓXIMA ACTIVIDAD</h4>
+            <p class="detalle-actividad">Jueves 14 - 17:30h</p>
+            <p class="detalle-actividad">Ricardo Arjona - Movistar Arena</p>
+            <p class="detalle-actividad">Voluntario</p>
+            
+            <button class="btn-ver-mas abrir-modal" data-target="modal-arjona">Ver más</button>
+        </div>
+    </article>
+    
+    
+    <section class="calendario-contenedor">
+        <header class="calendario-filtros">
+            <select id="select-mes">
+                <option value="0">Enero</option>
+                <option value="1">Febrero</option>
+                <option value="2">Marzo</option>
+                <option value="3">Abril</option>
+                <option value="4" selected>Mayo</option>
+                <option value="5">Junio</option>
+                <option value="6">Julio</option>
+                <option value="7">Agosto</option>
+                <option value="8">Septiembre</option>
+                <option value="9">Octubre</option>
+                <option value="10">Noviembre</option>
+                <option value="11">Diciembre</option>
+            </select>
+    
+            <select id="select-anio">
+                <option value="2025">2025</option>
+                <option value="2026" selected>2026</option>
+                <option value="2027">2027</option>
+            </select>
+        </header>
+    
+        <div class="calendario-cuerpo">
+            <div class="header-mes">
+                <button id="btn-prev" class="btn-flecha">❮</button>
+                <h3 id="titulo-mes-anio" class="titulo-mes">Mayo 2026</h3>
+                <button id="btn-next" class="btn-flecha">❯</button>
+            </div>
+            
+            <div class="dias-semana">
+                <div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sab</div><div>Dom</div>
+            </div>
+    
+            <div id="grilla-dias" class="grilla-dias">
+                </div>
+        </div>
+    
+        <hr class="separador">
+    
+        <div id="caja-eventos" class="lista-eventos">
+            
+            <article id="btn-lista-arjona" class="evento-item abrir-modal" data-target="modal-arjona">
+                <div class="columna-fecha">
+                    <span class="dia-evento">14</span>
+                    <div class="estado-etiqueta completo">Completo</div>
+                </div>
+                <div class="evento-info">
+                    <h4 class="evento-titulo">Evento: Ricardo Arjona</h4>
+                    <p><strong>Rol:</strong> Voluntario &bull; <strong>Lugar:</strong> Movistar Arena &bull; <strong>Ingreso:</strong> 17:30h</p>
+                </div>
+            </article>
+            
+            <article class="evento-item">
+                <div class="columna-fecha">
+                    <span class="dia-evento">26</span>
+                    <div class="estado-etiqueta completo">Completo</div>
+                </div>
+                <div class="evento-info">
+                    <h4 class="evento-titulo">Evento: Soda Stereo</h4>
+                    <p><strong>Rol:</strong> Suplente &bull; <strong>Lugar:</strong> Movistar Arena &bull; <strong>Ingreso:</strong> 16:30h</p>
+                </div>
+            </article>
+            
+            <article class="evento-item abrir-modal" data-target="modal-megadeth" style="cursor: pointer;">
+                <div class="columna-fecha">
+                    <span class="dia-evento">30</span>
+                    <div class="estado-etiqueta abierto">Abierto</div>
+                </div>
+                <div class="evento-info">
+                    <h4 class="evento-titulo">Evento: MEGADETH</h4>
+                    <p><strong>Rol:</strong> Sin confirmar &bull; <strong>Lugar:</strong> Tecnópolis QR &bull; <strong>Ingreso:</strong> 15:00h</p>
+                </div>
+            </article>
+            
+            <article class="evento-item">
+                <div class="columna-fecha">
+                    <span class="dia-evento">02</span>
+                    <div class="estado-etiqueta finalizado">Finalizado</div>
+                </div>
+                <div class="evento-info">
+                    <h4 class="evento-titulo">Evento: Ricardo Arjona</h4>
+                    <p><strong>Rol:</strong> Encargado &bull; <strong>Lugar:</strong> Movistar Arena &bull; <strong>Ingreso:</strong> 17:30h</p>
+                </div>
+            </article>
+        </div>
+    
+        <div id="mensaje-sin-eventos" style="display: none; text-align: center; color: #747474; padding: 20px;">
+            No hay eventos programados para este mes.
+        </div>
+    </section>
+    
+    
+    <article class="tarjeta-capacitaciones">
+        <h3 class="titulo-capacitaciones">CAPACITACIONES ANUALES 2026</h3>
+        
+        <ul class="lista-cursos">
+            <li class="curso-item">
+        <span class="icono-cruz icono-tooltip" data-tooltip="Tenés 1 capacitación obligatoria pendiente para este año. ¡Renovala para seguir activo!">
+            <img src="img/error.svg" alt="Falta">
+        </span> 
+        RCP Rápido y Fácil
+    </li>
+            <li class="curso-item">
+                <span class="icono-check"><img src="img/Check.svg" alt="Aprobado"></span> 
+                Primeros Auxilios Básicos
+            </li>
+            <li class="curso-item">
+                <span class="icono-check"><img src="img/Check.svg" alt="Aprobado"></span> 
+                Trauma teórico
+            </li>
+            <li class="curso-item">
+                <span class="icono-check"><img src="img/Check.svg" alt="Aprobado"></span> 
+                Trauma práctico
+            </li>
         </ul>
-    </div>
-
-    <div class="contenedor-stats">
-        <div class="stat-item" data-tooltip="Eventos">
-            <img src="img/icon chaleco.svg" class="icono-stat">
-            <span class="numero-stat">55</span>
-
+    
+        <div class="banner-optativos">
+            <p class="texto-optativos">
+                También podés sumarte a nuestros cursos optativos. Cuantas más capacitaciones hagas, más completo será tu perfil de socorrista.
+            </p>
+            <a href="cursos.html" class="btn-cursos">Cursos</a>
         </div>
-
-
-        <div class="stat-item" data-tooltip="Cursos">
-            <img src="img/GAFETE.svg" class="icono-stat">
-            <span class="numero-stat">13</span>
+    </article>
+    
+    <section class="tarjeta-historial">
+        <h3 class="titulo-historial">HISTORIAL DE ACTIVIDAD</h3>
+        
+        <div class="timeline-contenedor">
+            
+            <div class="timeline-item">
+                <div class="circulo-icono"><img src="img/icon chaleco.svg" alt="Evento"></div>
+                <div class="timeline-tarjeta">
+                    <h4 class="evento-titulo">Evento: Ricardo Arjona</h4>
+                    <div class="evento-detalle">
+                        <img src="img/reloj.svg" class="icono-reloj" alt="reloj">
+                        Participó como Voluntario. 02-05-2026 | 17:30h a 01:00h | Sábado
+                    </div>
+                </div>
+            </div>
+    
+            <div class="timeline-item">
+                <div class="circulo-icono"><img src="img/GAFETE.svg" alt="Curso"></div>
+                <div class="timeline-tarjeta">
+                    <h4 class="evento-titulo">Curso: Trauma práctico</h4>
+                    <div class="evento-detalle">
+                        <img src="img/reloj.svg" class="icono-reloj" alt="reloj">
+                        Participó como Voluntario. 17-04-2026 | 15:30h a 18:00h | Viernes
+                    </div>
+                </div>
+            </div>
+    
+            <div class="timeline-item">
+                <div class="circulo-icono"><img src="img/icon chaleco.svg" alt="Evento"></div>
+                <div class="timeline-tarjeta">
+                    <h4 class="evento-titulo">Chayanne</h4>
+                    <div class="evento-detalle">
+                        <img src="img/reloj.svg" class="icono-reloj" alt="reloj">
+                        Participó como Encargado. 25-02-2026 | 17:30h a 01:00h | Miércoles
+                    </div>
+                </div>
+            </div>
+    
+            <div class="timeline-item">
+                <div class="circulo-icono"><img src="img/icon chaleco.svg" alt="Evento"></div>
+                <div class="timeline-tarjeta">
+                    <h4 class="evento-titulo">Billboard Summer Festival</h4>
+                    <div class="evento-detalle">
+                        <img src="img/reloj.svg" class="icono-reloj" alt="reloj">
+                        Participó como Suplente. 16-01-2026 | 13:00h a 01:00h | Sábado
+                    </div>
+                </div>
+            </div>
+    
         </div>
+    </section>
 
-
-        <div class="stat-item" data-tooltip="Actividad últimos 3 meses">
-            <img src="img/calendario.svg" class="icono-stat">
-            <span class="numero-stat">10</span>
-        </div>
-        </section>
-
-        <article class="tarjeta-proxima-actividad">
-    <!-- Cuadrado verde con la fecha -->
-    <div class="fecha-destacada">
-        <span class="dia-numero">14</span>
-        <span class="mes-texto">Mayo</span>
-    </div>
-
-    <!-- Información de la actividad -->
-    <div class="info-actividad">
-        <h4 class="titulo-actividad">TU PROXIMA ACTIVIDAD</h4>
-        <p class="detalle-actividad">Jueves 14 - 17:30h</p>
-        <p class="detalle-actividad">Ricardo Arjona - Movistar Arena</p>
-        <p class="detalle-actividad">Voluntario</p>
-        
-        <!-- El botón mágico -->
-        <button id="btnvermas" class="btn-ver-mas">Ver más</button>
-        
-    </div>
-
-</article>
-
-        <article class="tarjeta-capacitaciones">
     
-    <h3 class="titulo-capacitaciones">CAPACITACIONES ANUALES 2026</h3>
-    
-    <ul class="lista-cursos">
-        <li class="curso-item">
-            <span class="icono-cruz"><img src="img/error.svg" alt=""></span> 
-            RCP Rápido y Fácil
-        </li>
-        <li class="curso-item">
-            <span class="icono-check"><img src="img/Check.svg" alt=""></span> 
-            Primeros Auxilios Básicos
-        </li>
-        <li class="curso-item">
-            <span class="icono-check"><img src="img/Check.svg" alt=""></span> 
-            Trauma teórico
-        </li>
-        <li class="curso-item">
-            <span class="icono-check"><img src="img/Check.svg" alt=""></span> 
-            Trauma práctico
-        </li>
-    </ul>
-
-    <div class="banner-optativos">
-        <div class="texto-optativos">
-            También podés sumarte a nuestros cursos optativos. Cuantas más capacitaciones hagas, más completo será tu perfil de socorrista.
-        </div>
-        <a href="cursos.html">
-            <button class="btn-cursos">Cursos</button>
-        </a>
-    </div>
-
-</article>
-
-    </div>
-
-    <div class="columna-derecha">
-        
-        <section class="calendario-contenedor">
-<header class="calendario-filtros">
-        <select id="select-mes">
-            <option value="0">Enero</option>
-            <option value="1">Febrero</option>
-            <option value="2">Marzo</option>
-            <option value="3">Abril</option>
-            <option value="4" selected>Mayo</option>
-            <option value="5">Junio</option>
-            <option value="6">Julio</option>
-            <option value="7">Agosto</option>
-            <option value="8">Septiembre</option>
-            <option value="9">Octubre</option>
-            <option value="10">Noviembre</option>
-            <option value="11">Diciembre</option>
-        </select>
-
-        <select id="select-anio">
-            <option value="2025">2025</option>
-            <option value="2026" selected>2026</option>
-            <option value="2027">2027</option>
-        </select>
-    </header>
-
-    <div class="calendario-cuerpo">
-        <div class="header-mes">
-    <button id="btn-prev" class="btn-flecha">❮</button>
-    <h3 id="titulo-mes-anio" class="titulo-mes">Mayo 2026</h3>
-    <button id="btn-next" class="btn-flecha">❯</button>
-</div>
-        
-        <div class="dias-semana">
-            <div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sab</div><div>Dom</div>
-        </div>
-
-        <div id="grilla-dias" class="grilla-dias"></div>
-    </div>
-
-    <hr class="separador">
-
-<!-- Envolvemos los eventos en un ID para poder ocultarlos desde JavaScript -->
-<div id="caja-eventos" class="lista-eventos">
-    <!-- Acá adentro van tus <article class="evento-item"> de Arjona, Soda y Megadeth -->
-        
-<article id="btn-lista-arjona" class="evento-item" style="cursor: pointer;">
-    
-    <div class="columna-fecha">
-        <span class="dia-evento">14</span>
-        <div class="estado-etiqueta completo">Completo</div>
-    </div>
-    
-    <div class="evento-info">
-        <h4 class="evento-titulo">Evento: Ricardo Arjona</h4>
-        <p><strong>Rol:</strong> Voluntario | <strong>Lugar:</strong> Movistar Arena | <strong>Ingreso:</strong> 17:30h</p>
-    </div>
-</article>
-        
-<article class="evento-item">
-    
-    <div class="columna-fecha">
-        <span class="dia-evento">26</span>
-        <div class="estado-etiqueta completo">Completo</div>
-    </div>
-    
-    <div class="evento-info">
-        <h4 class="evento-titulo">Evento: Soda Stereo</h4>
-        <p><strong>Rol:</strong> Voluntario | <strong>Lugar:</strong> Movistar Arena | <strong>Ingreso:</strong> 17:30h</p>
-           </div>
-</article>
-        
-<article class="evento-item">
-    
-    <div class="columna-fecha">
-        <span class="dia-evento">30</span>
-        <div class="estado-etiqueta abierto">Abierto</div>
-    </div>
-    
-    <div class="evento-info">
-        <h4 class="evento-titulo">Evento: MEGADETH</h4>
-        <p><strong>Rol:</strong> Sin confirmar | <strong>Lugar:</strong> Tecnópolis QR | <strong>Ingreso:</strong> 15:30h</p>
-           </div>
-</article>
-        
-     <article class="evento-item">
-    
-    <div class="columna-fecha">
-        <span class="dia-evento">02</span>
-        <div class="estado-etiqueta finalizado">Finalizado</div>
-    </div>
-    
-    <div class="evento-info">
-        <h4 class="evento-titulo">Evento: Ricardo Arjona</h4>
-        <p><strong>Rol:</strong> Voluntario | <strong>Lugar:</strong> Movistar Arena | <strong>Ingreso:</strong> 17:30h</p>
-    </div>
-</article>
-    </div>
-
-<!-- Este cartelito estará oculto por defecto -->
-<div id="mensaje-sin-eventos" style="display: none; text-align: center; color: #747474; padding: 20px;">
-    No hay eventos programados para este mes.
-</div>
-        
-    
-
-    </div>
-</section>
-
-    </div>
-
-<!-- EL POPUP FLOTANTE (Oculto por defecto) -->
+    <!-- EL POPUP FLOTANTE (Oculto por defecto) -->
 <div id="modal-arjona" class="modal-overlay" style="display: none;">
     <div class="modal-contenido">
         
@@ -359,71 +386,187 @@
         </div>
     </div>
 </div>
-</main>
 
-<main>
-<div>
-    <!-- =================================================== -->
-    <!-- BLOQUE INFERIOR: HISTORIAL DE ACTIVIDAD (ABAJO DE TODO) -->
-    <!-- =================================================== -->
-    <section class="tarjeta-historial">
-        <h3 class="titulo-historial">HISTORIAL DE ACTIVIDAD</h3>
-        
-        <div class="timeline-contenedor">
+
+<div id="modal-megadeth" class="modal-overlay" style="display: none;">
+    <div class="modal-contenido">
+        <button class="btn-cerrar">✖</button>
+        <div class="modal-columnas">
             
-            <!-- Item 1 -->
-            <div class="timeline-item">
-                <div class="circulo-icono"><img src="img/icon chaleco.svg" alt="Evento"></div>
-                <div class="timeline-tarjeta">
-                    <div class="evento-titulo">Evento: Ricardo Arjona</div>
-                    <div class="evento-detalle">
-                        <img src="img/reloj.svg" class="icono-reloj" alt="reloj">
-                        Participó como Voluntario. 02-05-2026 | 17:30h a 01:00h | Sábado
-                    </div>
-                </div>
+            <!-- COLUMNA IZQUIERDA: Info del Lugar -->
+            <div class="col-info">
+                <h3>Lugar</h3>
+                <p><strong>Nombre:</strong> Tecnópolis QR</p>
+                <p><strong>Dirección:</strong> Av. Constituyentes y Maipu</p>
+                <p><strong>Punto de Encuentro:</strong> Av. Constituyentes y Maipu</p>
+                <br>
+                <p><strong>¿Cómo llegar?:</strong></p>
+                <p><strong>Colectivos:</strong> 21, 28, 111, 112, 117, 127, 140, 142, 175, 176</p>
+                <p><strong>Trenes:</strong> Linea Mitre - Estación San Martín</p>
+                <p> Linea Belgrano Norte - Estación M. M. Padilla</p>
+                <p><strong>Subte:</strong> - </p>
+                <br>
+                <p><strong>Mapa:</strong></p>
+                <!-- El mapa es una imagen que funciona como link -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d410.7023771902228!2d-58.51519998277457!3d-34.56320041135179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb71b832da9f3%3A0x1f78a3e79baccb97!2sAv.%20de%20los%20Constituyentes%201906-1902%2C%20B1650%20Villa%20Martelli%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1781225140022!5m2!1ses-419!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <span class="click-ver">Click para abrir en Google Maps</span>
+                </a>
             </div>
 
-            <!-- Item 2 -->
-            <div class="timeline-item">
-                <div class="circulo-icono"><img src="img/GAFETE.svg" alt="Curso"></div>
-                <div class="timeline-tarjeta">
-                    <div class="evento-titulo">Curso: Trauma práctico</div>
-                    <div class="evento-detalle">
-                        <img src="img/reloj.svg" class="icono-reloj" alt="reloj">
-                        Participó como Voluntario. 17-04-2026 | 15:30h a 18:00h | Viernes
-                    </div>
-                </div>
-            </div>
+            <!-- COLUMNA DERECHA: Lista de Inscriptos -->
+            <div class="col-inscriptos">
+                <h3>Inscriptos (#38)</h3>
+                <ul class="lista-personas">
+                    
 
-            <!-- Item 3 -->
-            <div class="timeline-item">
-                <div class="circulo-icono"><img src="img/icon chaleco.svg" alt="Evento"></div>
-                <div class="timeline-tarjeta">
-                    <div class="evento-titulo">Chayanne</div>
-                    <div class="evento-detalle">
-                        <img src="img/reloj.svg" class="icono-reloj" alt="reloj">
-                        Participó como Encargado. 25-02-2026 | 17:30h a 01:00h | Miércoles
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="timeline-item">
-                <div class="circulo-icono"><img src="img/icon chaleco.svg" alt="Evento"></div>
-                <div class="timeline-tarjeta">
-                    <div class="evento-titulo">Billboard Summer Festival</div>
-                    <div class="evento-detalle">
-                        <img src="img/reloj.svg" alt="reloj">
-                        Participó como Suplente. 16-01-2026 | 13:00h a 01:00h | Sábado
-                    </div>
-                </div>
+                    <!-- Voluntarios (Podés copiar y pegar esto para los 14) -->
+                    <li class="persona-item">
+                        <span class="nombre-persona">Santiago Ramallo</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Alma Quintana</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Jerónimo Rivas</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Luana Galván</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Thiago Ibarra</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Olivia Bustamante</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Lautaro Salinas</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Jazmín Corvalán</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Mauro Ledezma</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Aitana Figueroa</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Facundo Varela</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Renata Guzmán</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Gastón Orellana</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Paloma Peralta</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Tomás Cabral</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Chiara Espinosa</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Lucas Valenzuela</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Milagros Funes</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Dante Guevara</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Abril Mendoza</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Felipe Beltrán</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Catalina Solís</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Ignacio Pardo</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Florencia Villalba</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Joaquín Santillán</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Valentina Rossi</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Mateo Fernández</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    <li class="persona-item">
+                        <span class="nombre-persona">Lucía Bianchi</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Julián Martínez</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                                            <li class="persona-item">
+                        <span class="nombre-persona">Sofía Moretti</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Benjamín Costa</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Camila Duarte</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Tomás Herrera</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                                        <li class="persona-item">
+                        <span class="nombre-persona">Sin confirmar</span>
+                        <span class="rol-voluntario">Sin confirmar</span>
+                    </li>
+                    </li>
+                    </li>
+                </ul>
             </div>
 
         </div>
-    </section>
+    </div>
 </div>
 
-</main>
+
+    </main>
+
 
 <footer class="footer-sec">
         <div class="footer-contenido">
@@ -448,152 +591,135 @@
     </footer>
 
 
+    <script>
 
+document.addEventListener('DOMContentLoaded', () => {
 
+    /* =======================================================
+       1. LÓGICA DE LOS POPUPS (Mejorada)
+       ======================================================= */
+    // Usamos delegación de eventos para que funcione incluso con los días creados por JS
+    document.addEventListener('click', (e) => {
+        // Si tocamos algo que tiene la clase 'abrir-modal'
+        const btnAbrir = e.target.closest('.abrir-modal');
+        if (btnAbrir) {
+            const targetId = btnAbrir.getAttribute('data-target');
+            const modal = document.getElementById(targetId);
+            if (modal) modal.style.display = 'flex';
+        }
 
-<script>
-    
-    // Agregá estas variables al principio de tu script, junto con las otras const
-const modalArjona = document.getElementById("modal-arjona");
-const btnCerrarModal = document.getElementById("btn-cerrar-modal");
-const btnListaArjona = document.getElementById("btn-lista-arjona");
+        // Si tocamos la "X" para cerrar
+        const btnCerrar = e.target.closest('.btn-cerrar');
+        if (btnCerrar) {
+            const modal = btnCerrar.closest('.modal-overlay');
+            if (modal) modal.style.display = 'none';
+        }
 
-// Función para abrir el modal
-function abrirModalArjona() {
-    modalArjona.style.display = "flex";
-}
+        // Si tocamos el fondo oscuro afuera de la caja
+        if (e.target.classList.contains('modal-overlay')) {
+            e.target.style.display = 'none';
+        }
+    });
 
-// 1. Abrir Modal desde la LISTA DE EVENTOS
-if (btnListaArjona) {
-    btnListaArjona.addEventListener("click", abrirModalArjona);
-}
+    /* =======================================================
+       2. LÓGICA DEL CALENDARIO Y LISTA DE EVENTOS
+       ======================================================= */
+    const selectMes = document.getElementById('select-mes');
+    const selectAnio = document.getElementById('select-anio');
+    const tituloMesAnio = document.getElementById('titulo-mes-anio');
+    const grillaDias = document.getElementById('grilla-dias');
+    const cajaEventos = document.getElementById('caja-eventos');
+    const mensajeSinEventos = document.getElementById('mensaje-sin-eventos');
 
-// 2. Cerrar Modal desde la cruz "X"
-btnCerrarModal.addEventListener("click", function() {
-    modalArjona.style.display = "none";
-});
-
-
-// 3. Cerrar Modal haciendo click afuera de la tarjeta blanca
-window.addEventListener("click", function(event) {
-    if (event.target === modalArjona) {
-        modalArjona.style.display = "none";
-    }
-});
-    // 1. Agarramos los elementos del HTML
-    const selectMes = document.getElementById("select-mes");
-    const selectAnio = document.getElementById("select-anio");
-    const tituloMesAnio = document.getElementById("titulo-mes-anio");
-    const grillaDias = document.getElementById("grilla-dias");
-    
-    // Agarramos los elementos nuevos de flechas y eventos
-    const btnPrev = document.getElementById("btn-prev");
-    const btnNext = document.getElementById("btn-next");
-    const cajaEventos = document.getElementById("caja-eventos");
-    const mensajeSinEventos = document.getElementById("mensaje-sin-eventos");
+    // Asociamos las fechas exactas con el ID de su popup correspondiente
+    const diasConEventos = {
+        "2026-4-2": "modal",
+        "2026-4-26": "modal",
+        "2026-4-14": "modal-arjona",
+        "2026-4-30": "modal-megadeth"
+    };
 
     const nombresMeses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-    // 2. LA RECETA PRINCIPAL
     function renderizarCalendario() {
-        const mesActual = parseInt(selectMes.value);
-        const anioActual = parseInt(selectAnio.value);
-
-        tituloMesAnio.textContent = nombresMeses[mesActual] + " " + anioActual;
-        grillaDias.innerHTML = "";
-
-        const diasDelMes = new Date(anioActual, mesActual + 1, 0).getDate();
+        const mes = parseInt(selectMes.value);
+        const anio = parseInt(selectAnio.value);
         
-        let primerDiaSemana = new Date(anioActual, mesActual, 1).getDay();
-        primerDiaSemana = primerDiaSemana === 0 ? 6 : primerDiaSemana - 1;
+        tituloMesAnio.textContent = `${nombresMeses[mes]} ${anio}`;
+        grillaDias.innerHTML = '';
 
-        // Cajas vacías
-        for (let i = 0; i < primerDiaSemana; i++) {
-            const cajaVacia = document.createElement("div");
-            cajaVacia.classList.add("dia-caja", "dia-vacio");
-            grillaDias.appendChild(cajaVacia);
+        // MAGIA: Si estamos en Mayo (4) de 2026, mostramos la lista. Si no, mostramos el cartel.
+        if (mes === 4 && anio === 2026) {
+            cajaEventos.style.display = 'flex';
+            mensajeSinEventos.style.display = 'none';
+        } else {
+            cajaEventos.style.display = 'none';
+            mensajeSinEventos.style.display = 'block';
         }
 
-        // Dias reales
-        for (let dia = 1; dia <= diasDelMes; dia++) {
-            const cajaDia = document.createElement("div");
-            cajaDia.classList.add("dia-caja");
+        let primerDia = new Date(anio, mes, 1).getDay();
+        primerDia = primerDia === 0 ? 6 : primerDia - 1; 
+        const diasEnMes = new Date(anio, mes + 1, 0).getDate();
+
+        // Cuadraditos vacíos
+        for (let i = 0; i < primerDia; i++) {
+            const vacio = document.createElement('div');
+            vacio.classList.add('dia-caja', 'dia-vacio');
+            grillaDias.appendChild(vacio);
+        }
+
+        // Días con números
+        for (let dia = 1; dia <= diasEnMes; dia++) {
+            const cajaDia = document.createElement('div');
+            cajaDia.classList.add('dia-caja');
             cajaDia.textContent = dia;
 
-            if (mesActual === 4 && anioActual === 2026) {
-                // ... así es como tiene que quedar para que cada uno sepa qué abrir ...
+            // Si el día está en nuestra lista de eventos, lo pintamos de rojo y le damos la orden de abrir el popup
+            const fechaActual = `${anio}-${mes}-${dia}`;
+            if (diasConEventos[fechaActual]) {
+                cajaDia.classList.add('dia-con-evento', 'abrir-modal');
+                cajaDia.setAttribute('data-target', diasConEventos[fechaActual]);
+            }
 
-if (dia === 2 || dia === 14 || dia === 26 || dia === 30) {
-    cajaDia.classList.add("dia-con-evento");
-    
-    // Ahora le decimos a cada uno qué hacer específicamente:
-    cajaDia.addEventListener("click", () => {
-        if (dia === 14) {
-            abrirModalArjona(); // Solo se abre Arjona el 14
-        } else if (dia === 2) {
-            // Acá llamarías a la función del evento del día 2
-            console.log("Acá abriría el evento del día 2");
-        } else if (dia === 26) {
-            // Acá abrirías el evento del día 26
-            console.log("Acá abriría el evento del día 26");
-        }
-    });
-}}
             grillaDias.appendChild(cajaDia);
-        }
-
-        // --- MAGIA NUEVA: OCULTAR O MOSTRAR LISTA DE EVENTOS ---
-        // Si el mes es 4 (Mayo) y el año es 2026, mostramos los eventos
-        if (mesActual === 4 && anioActual === 2026) {
-            cajaEventos.style.display = "flex";
-            mensajeSinEventos.style.display = "none";
-        } else {
-            // Si es cualquier otro mes, ocultamos la lista y mostramos el mensaje
-            cajaEventos.style.display = "none";
-            mensajeSinEventos.style.display = "block";
         }
     }
 
-    // 3. EVENTOS DE FLECHAS Y SELECTORES
-    selectMes.addEventListener("change", renderizarCalendario);
-    selectAnio.addEventListener("change", renderizarCalendario);
+    /* =======================================================
+       3. CONTROLES DEL CALENDARIO (Flechas)
+       ======================================================= */
+    selectMes.addEventListener('change', renderizarCalendario);
+    selectAnio.addEventListener('change', renderizarCalendario);
 
-    // Lógica flecha ATRÁS
-    btnPrev.addEventListener("click", function() {
-        let mes = parseInt(selectMes.value);
-        let anio = parseInt(selectAnio.value);
-
-        if (mes === 0) { // Si estamos en Enero...
-            if (anio > 2025) { // ...Y no nos fuimos de nuestro año mínimo
-                selectMes.value = 11; // Pasamos a Diciembre
-                selectAnio.value = anio - 1; // Le restamos un año
-            }
+    document.getElementById('btn-prev').addEventListener('click', () => {
+        let mesActual = parseInt(selectMes.value);
+        let anioActual = parseInt(selectAnio.value);
+        if (mesActual === 0) {
+            selectMes.value = 11;
+            selectAnio.value = anioActual - 1;
         } else {
-            selectMes.value = mes - 1; // Solo restamos un mes
+            selectMes.value = mesActual - 1;
         }
         renderizarCalendario();
     });
 
-    // Lógica flecha ADELANTE
-    btnNext.addEventListener("click", function() {
-        let mes = parseInt(selectMes.value);
-        let anio = parseInt(selectAnio.value);
-
-        if (mes === 11) { // Si estamos en Diciembre...
-            if (anio < 2027) { // ...Y no nos fuimos de nuestro año máximo
-                selectMes.value = 0; // Pasamos a Enero
-                selectAnio.value = anio + 1; // Sumamos un año
-            }
+    document.getElementById('btn-next').addEventListener('click', () => {
+        let mesActual = parseInt(selectMes.value);
+        let anioActual = parseInt(selectAnio.value);
+        if (mesActual === 11) {
+            selectMes.value = 0;
+            selectAnio.value = anioActual + 1;
         } else {
-            selectMes.value = mes + 1; // Solo sumamos un mes
+            selectMes.value = mesActual + 1;
         }
         renderizarCalendario();
     });
 
-    // 4. INICIO
     renderizarCalendario();
+});
 
-</script>
+    </script>
+
 
 </body>
 </html>

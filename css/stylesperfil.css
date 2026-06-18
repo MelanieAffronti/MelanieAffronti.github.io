@@ -113,215 +113,296 @@ body {
 }
 
 
+/* ====================================
+   TARJETA PERSONAL
+   ==================================== */
 
-/* HASTA ACA ES EL MENÚ */
-
-.contenedor-principal {
-    display: flex;       /* Los pone uno al lado del otro */
-    justify-content: center;
-    gap: 40px;           /* Separación entre la tarjeta y el calendario */
-    padding: 40px;       /* Un poco de aire general contra los bordes de la pantalla */
-    align-items: flex-start; /* Evita que la tarjeta se estire verticalmente para igualar al calendario */
-}
-
-/*ACA LA TARJETA DE INFO PERSONAL*/
-
-/* Tarjeta Principal */
 .tarjeta-personal {
-    margin: 60px;
-    width: 513px;
-    height: 300px;
+     max-width: 500px; /* Ajustalo a la medida que te guste más, Figma suele usar 600-800px */
+    margin: 40px auto !important; /* Centra la tarjeta en la pantalla */
     background-color: #fbfbfb;
     border-radius: 30px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
     padding: 30px;
-    display: flex; /* Flexbox para alinear foto y datos */
-    flex-wrap: wrap;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.05); /* Sombra súper suave */
+    font-family: 'Open Sans', sans-serif;
+    color: #343434;
+}
+
+/* --- Parte de arriba (Foto + Texto) --- */
+.perfil-superior {
+    display: flex;
     align-items: center;
-    gap: 20px;
-    position: relative
+    gap: 25px; /* Separación entre el círculo y el texto */
+    margin-bottom: 30px; /* Separación con los números de abajo */
 }
 
-/* Lista de datos */
-.datos-lista { list-style: none; margin-top: 10px;  
+.foto-perfil img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #e0e0e0; /* Un fondito gris por si la imagen tarda en cargar */
 }
-.destacado { color: #1c6758; font-weight: 600; }
 
-/* Contenedor de iconos (Estadísticas) */
+.info-usuario h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    color: #282828;
+}
+
+.datos-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.destacado {
+    color: #1c6758; /* Verde SEC */
+    font-weight: 600;
+}
+
+/* --- Parte de abajo (Estadísticas y Tooltips) --- */
 .contenedor-stats {
     display: flex;
-    gap: 90px;
+    justify-content: space-around; /* Reparte los 3 iconos con el mismo espacio */
     align-items: center;
-    margin-left: 50px
-    ;
 }
-.numero-stat {
-     text-decoration: none; /* Saca el subrayado azul feo */
-    color: #464444; /* Color gris para los inactivos */
-    font-weight: 600;
-    font-size: 45px;
-font-family: 'open sans';
-}
-/* El ícono y su efecto */
-.stat-item { position: relative; cursor: pointer; 
-display: flex;
-flex-direction: column;
-align-items: center;
 
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    position: relative; /* Clave para que el tooltip flote acá adentro */
 }
+
 .icono-stat {
-    height: 30px;
-    filter: grayscale(100%) opacity(50%); /* Gris apagado por defecto */
-    transition: all 0.3s;
+    height: 35px;
+    filter: grayscale(100%) opacity(60%); /* Arrancan grises y medio apagados */
+    transition: all 0.3s ease;
 }
 
+.numero-stat {
+    font-size: 42px;
+    font-weight: 700;
+    color: #555555;
+}
+
+/* Efecto al pasar el mouse (Hover) */
 .stat-item:hover .icono-stat {
-    filter: none
+    filter: grayscale(0%) opacity(100%); /* Vuelven a su color original brillante */
 }
 
-/* Tooltip (El cartelito) - La magia CSS */
+/* El cartelito negro oculto (Tooltip) */
 .stat-item::after {
-    content: attr(data-tooltip); /* Lee el texto de "data-tooltip" del HTML */
+    content: attr(data-tooltip); /* Lee el texto dinámico de tu HTML */
     position: absolute;
-    bottom: 110%; /* Lo pone arriba del ícono */
+    bottom: 100%; /* Sube por encima del ícono */
     left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: #282828;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
     font-size: 12px;
-    visibility: hidden; /* Invisible por defecto */
+    white-space: nowrap; /* Evita que el texto se rompa en dos líneas */
+    
+    /* Animación de entrada */
+    visibility: hidden;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: all 0.3s ease;
+    pointer-events: none; /* Evita que el mouse interactúe con el cartelito */
 }
 
-/* Mostrar tooltip al pasar el mouse */
 .stat-item:hover::after {
     visibility: visible;
     opacity: 1;
+    transform: translateX(-50%) translateY(-5px); /* Hace un saltito hacia arriba */
 }
 
-
-
-
-/**CALENDARIO/
 
 /* ====================================
-   MÓDULO CALENDARIO
+   TARJETA PRÓXIMA ACTIVIDAD
    ==================================== */
-.calendario-contenedor {
-    margin-top: 60px;
-    width: 594px;
-    background-color: white;
-    border-radius: 24px;
-    box-shadow: 0px 6px 40px rgba(0, 0, 0, 0.08);
-    padding: 30px;
-    font-family: 'open sans', sans-serif;
-    color: #282828;
-
+.tarjeta-proxima-actividad {
+    background-color: #fbfbfb;
+    border-radius: 30px;
+    padding: 25px 30px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.05); /* Misma sombra que la de perfil */
+    font-family: 'Open Sans', sans-serif;
+    
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Separación entre el cuadro verde y el texto */
+    
+    /* El "bozal" para que mida igual que la personal */
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto; 
+    box-sizing: border-box;
 }
 
-/* Filtros Superiores */
+/* --- Cuadrado verde de la fecha --- */
+.fecha-destacada {
+    background-color: #1c6758; /* Verde SEC */
+    color: #ffffff;
+    width: 100px;
+    height: 100px;
+    border-radius: 25px; /* Un redondeo intermedio tipo "squircle" */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Evita que el texto de al lado lo aplaste */
+}
+
+.dia-numero {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1; /* Para que el mes quede pegadito abajo */
+}
+
+.mes-texto {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* --- Textos de información --- */
+.info-actividad {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea todo a la izquierda */
+}
+
+.titulo-actividad {
+    color: #1c6758;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.detalle-actividad {
+    color: #343434;
+    font-size: 14px;
+    margin: 0 0 4px 0;
+}
+
+/* --- Botón Ver Más --- */
+.btn-ver-mas {
+    background-color: #1c6758;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px; /* Forma de pastilla */
+    padding: 6px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px; /* Un poco de aire arriba */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-mas:hover {
+    background-color: #145044; /* Verde más oscurito al pasar el mouse */
+}
+
+
+/* ====================================
+   CALENDARIO Y EVENTOS
+   ==================================== */
+.calendario-contenedor {
+    background-color: #fbfbfb;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+    font-family: 'Open Sans', sans-serif;
+    color: #282828;
+    
+    /* El bozal (El calendario es un poquito más ancho en tu diseño) */
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto; 
+    box-sizing: border-box;
+}
+
+/* Filtros */
 .calendario-filtros {
     display: flex;
+    justify-content: center;
     gap: 15px;
-    margin-bottom: 20px;
-    margin-left: 25%
+    margin-bottom: 25px;
 }
 
 .calendario-filtros select {
-    background-color: #f0f0f0;
-    border: 1px solid #d9d9d9;
+    background-color: #e6e6e6;
+    border: none;
     border-radius: 8px;
-    padding: 5px 15px;
-    font-size: 16px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
-    font-family: 'open sans', sans-serif;
+    color: #343434;
+    outline: none;
 }
 
-/* Título del Mes */
-.titulo-mes {
-    text-align: center;
-    font-size: 20px;
-    color: #343434;
-    margin-bottom: 20px;
-}
+/* Cabecera del mes */
 .header-mes {
     display: flex;
-    justify-content: space-between; /* Tira las flechas a las puntas y el texto al centro */
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    padding: 0 10px;
 }
 
 .titulo-mes {
-    margin: 0; /* Le sacamos el margen porque ahora lo maneja el header-mes */
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .btn-flecha {
     background: none;
     border: none;
-    font-size: 18px;
-    color: #343434;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
-    padding: 5px 15px;
+    color: #282828;
 }
 
-.btn-flecha:hover {
-    color: #1c6758; /* Se pone verde al pasar el mouse */
-}
-/* Grilla de días de la semana (Lun, Mar, Mie...) */
-.dias-semana {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales */
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #000;
-}
-
-/* Grilla de los números (Inyectados por JS) */
-.grilla-dias {
+/* Grilla Días */
+.dias-semana, .grilla-dias {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px; /* Separación entre los cuadraditos */
+    text-align: center;
+    gap: 5px;
 }
 
-/* Estilo de cada cuadradito de día */
+.dias-semana {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
 .dia-caja {
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
     font-size: 14px;
-    color: #131516;
+    border-radius: 4px;
 }
 
-/* Días vacíos (para rellenar los huecos al principio del mes) */
-.dia-vacio {
-    background-color: transparent;
-}
-
-/* EL DÍA MARCADO CON EVENTO (El cuadradito rojo de tu diseño) */
-.dia-con-evento {
-    background-color: #e86969; /* Rojo */
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0px 2px 5px rgba(232, 105, 105, 0.4);
-}
-
-/* Separador visual */
 .separador {
     border: none;
-    border-top: 2px solid #d9d9d9;
+    border-top: 1px solid #e0e0e0;
     margin: 30px 0;
 }
 
-/* ====================================
-   LISTA DE EVENTOS
-   ==================================== */
+/* Lista de Eventos */
 .lista-eventos {
     display: flex;
     flex-direction: column;
@@ -329,59 +410,398 @@ align-items: center;
 }
 
 .evento-item {
-    background-color: #fbfbfb;
-    border: 1px solid #f0f0f0;
-    border-radius: 8px;
-    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 15px 20px;
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
-}
-
-.estado-etiqueta {
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.completo { background-color: #989898; color: #ffffff; 
-margin-top: 10px;}
-.abierto { background-color: #1ac66d; color: white; margin-top: 10px;}
-.finalizado { background-color: #454545; color: white; margin-top: 10px;}
-
-.evento-titulo {
-    color: #1c6758;
-    margin: 20px 0 5px 0;
-    font-size: 15px;
+    align-items: center;
+    gap: 20px;
     cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.evento-info p {
-    margin: 3px 0;
-    font-size: 13px;
-    color: #747474;
+.evento-item:hover {
+    transform: translateY(-2px);
+}
+
+.columna-fecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 65px;
 }
 
 .dia-evento {
-    color: #464444; /* Color gris para los inactivos */
-    font-weight: 600;
-    font-size: 35px;
-font-family: 'open sans';
-}
-.columna-fecha {
-    display: flex;
-    flex-direction: column; /* Esto es la clave: pone uno arriba del otro */
-    align-items: center;    /* Centra el número y el cartelito */
-    justify-content: center;
-    width: 80px;            /* Le damos un ancho fijo para que quede ordenado */
-    flex-shrink: 0;         /* Evita que se achique si el texto es muy largo */
+    font-size: 32px;
+    font-weight: 700;
+    color: #343434;
+    line-height: 1;
 }
 
-/* Ajuste para que el cartel no tenga margen arriba si lo estamos apilando */
 .estado-etiqueta {
-    margin-top: 5px; /* Un poquito de aire nada más */
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+    text-transform: uppercase;
 }
+
+.completo { background-color: #d9d9d9; color: #555; }
+.abierto { background-color: #1ac66d; color: #fff; }
+.finalizado { background-color: #747474; color: #fff; }
+
+.evento-titulo {
+    margin: 0 0 6px 0;
+    color: #1c6758;
+    font-size: 15px;
+}
+
+.evento-info p {
+    margin: 0;
+    font-size: 12px;
+    color: #555;
+}
+
+
+/* EL DÍA MARCADO CON EVENTO (Cuadradito rojo) */
+.dia-con-evento {
+    background-color: #e86969; /* Rojo */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0px 2px 5px rgba(232, 105, 105, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.dia-con-evento:hover {
+    transform: scale(1.1); /* Efecto lindo de que se agranda al pasar el mouse */
+}
+
+/* ====================================
+   CAPACITACIONES ANUALES
+   ==================================== */
+
+/* Contenedor relativo para que el tooltip se posicione bien */
+.icono-tooltip {
+    position: relative;
+    cursor: help; /* Cambia el cursor para indicar que hay info extra */
+}
+
+/* El cartelito del error */
+.icono-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%; /* Un poquito más arriba del icono */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #282828;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    width: 200px; /* Ancho fijo para que el texto se acomode en varias líneas */
+    text-align: center;
+    line-height: 1.4;
+    
+    /* Animación */
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+/* Aparece al pasar el mouse */
+.icono-tooltip:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tarjeta-capacitaciones {
+    background-color: #fbfbfb;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+    font-family: 'Open Sans', sans-serif;
+    
+    /* El bozal idéntico a las tarjetas de la izquierda */
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto; 
+    box-sizing: border-box;
+}
+
+.titulo-capacitaciones {
+    color: #1c6758;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+}
+
+.lista-cursos {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.curso-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #343434;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.curso-item img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Banner inferior */
+.banner-optativos {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el texto y el botón */
+    text-align: center;
+}
+
+.texto-optativos {
+    color: #343434;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0 0 15px 0;
+}
+
+.btn-cursos {
+    background-color: #1c6758;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 8px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cursos:hover {
+    background-color: #145044;
+}
+
+
+/* ====================================
+   HISTORIAL DE ACTIVIDAD (Línea de tiempo)
+   ==================================== */
+.tarjeta-historial {
+    background-color: #fbfbfb;
+    border-radius: 30px;
+    padding: 35px 40px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+    font-family: 'Open Sans', sans-serif;
+    
+    /* El bozal, pero más ancho porque va a lo largo de toda la página */
+    width: 100%;
+    max-width: 1120px; 
+    margin: 20px auto; 
+    box-sizing: border-box;
+}
+
+.titulo-historial {
+    text-align: center;
+    color: #1c6758;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 35px 0;
+}
+
+/* El contenedor que aloja la línea y las tarjetas */
+.timeline-contenedor {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espacio entre cada evento */
+}
+
+/* LA LÍNEA GRIS VERTICAL */
+.timeline-contenedor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 29px; /* Esto la centra justo por la mitad de los círculos de 60px */
+    width: 2px;
+    background-color: #747474;
+    z-index: 1;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2; /* Para que los círculos tapen la línea */
+}
+
+/* Los círculos grises */
+.circulo-icono {
+    width: 60px;
+    height: 60px;
+    background-color: #e6e6e6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Para que el círculo no se achique nunca */
+}
+
+.circulo-icono img {
+    width: 25px;
+    height: auto;
+}
+
+/* La tarjeta blanca individual */
+.timeline-tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px 20px;
+    flex-grow: 1; /* Hace que ocupe todo el espacio sobrante hacia la derecha */
+    position: relative;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.02);
+}
+
+/* EL PIQUITO DE LA TARJETA (Triángulo que apunta a la izq) */
+.timeline-tarjeta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -7px; /* Lo empujamos afuera de la caja hacia la izquierda */
+    transform: translateY(-50%) rotate(45deg); /* Lo rotamos 45 grados para hacer el rombo */
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+}
+
+/* Textos internos */
+.evento-titulo {
+    color: #282828;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+}
+
+.evento-detalle {
+    color: #555555;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.icono-reloj {
+    width: 14px;
+    opacity: 0.7;
+}
+
+
+
+
+/* ====================================
+   FOOTER
+   ==================================== */
+.footer-sec {
+    background-color: #acacac;
+    width: 100%;
+
+    border-top: 1px solid #d9d9d9;
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-footer {
+    display: flex;
+    width: 200px;
+    margin: auto;
+ }
+
+.redes-sociales {
+    display: flex;
+    padding-left: 100px;
+    gap: 15px;
+}
+
+.redes-sociales img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.redes-sociales img:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+/* ====================================
+   LA GRILLA MAESTRA (PC)
+   ==================================== */
+.contenedor-perfil {
+    display: grid;
+    /* Definimos el ancho de las 2 columnas: Izquierda (max 500px) y Derecha (max 600px) */
+    grid-template-columns: minmax(300px, 500px) minmax(300px, 600px);
+    gap: 30px 40px; /* 30px de separación vertical, 40px de separación horizontal */
+    justify-content: center; /* Centra todo el bloque en la pantalla */
+    max-width: 1200px;
+    margin: 60px auto; /* Aire arriba y abajo de la página */
+    padding: 0 20px;
+
+    /* ¡EL PLANO DEL FIGMA! (Asignamos posiciones) */
+    grid-template-areas:
+        "perfil     calendario"
+        "proxima    calendario"
+        "cursos     calendario"
+        "historial  historial"; /* El historial abarca las 2 columnas abajo */
+}
+
+/* Le decimos a cada tarjeta a qué parte del plano pertenece y limpiamos márgenes */
+.tarjeta-personal { 
+    grid-area: perfil; 
+    margin: 0 !important; 
+}
+.tarjeta-proxima-actividad { 
+    grid-area: proxima; 
+    margin: 0 !important; 
+}
+.tarjeta-capacitaciones { 
+    grid-area: cursos; 
+    margin: 0 !important; 
+}
+.calendario-contenedor { 
+    grid-area: calendario; 
+    margin: 0 !important; 
+    height: fit-content; /* Para que no se estire de más hacia abajo */
+}
+.tarjeta-historial { 
+    grid-area: historial; 
+    margin: 40px 0 0 0 !important; /* Le damos un poco de aire extra solo arriba del historial */
+}
+
+
 /* ====================================
    MODAL / POPUP DE EVENTOS
    ==================================== */
@@ -562,376 +982,128 @@ font-family: 'open sans';
 }
 
 /* Aplicamos la animación a tu contenedor principal */
-.contenedor-principal {
+.contenedor-perfil {
     /* Llamamos a la animación, le damos 0.8 segundos y 'ease-out' para que frene suave */
     animation: deslizarDesdeArriba 0.8s ease-out; 
 }
 .modal-contenido { animation: deslizarDesdeArriba 0.8s ease-out; }
 
-/* ====================================
-   TARJETA PRÓXIMA ACTIVIDAD
-   ==================================== */
-
-/* Contenedor principal de la tarjeta blanca */
-.tarjeta-proxima-actividad {
-    background-color: #fbfbfb;
-    border-radius: 20px;
-    padding: 25px;
-
-    display: flex;           /* Pone el cuadrado verde y los textos en fila */
-    align-items: center;     /* Los centra verticalmente */
-    gap: 20px;               /* Separación entre el cuadrado y los textos */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05); /* Sombrita suave */
-    width: fit-content;      /* Se ajusta al tamaño de su contenido */
-    margin-top: -670px; /* Probá con este número y ajustalo */
-    position: relative; /* Esto le avisa que se va a mover un poquito */
-margin-left: 185px;
-width: 520px;
-}
-
-/* El cuadrado verde de la fecha */
-.fecha-destacada {
-    background-color: #1c6758;
-    color: white;
-    display: flex;
-    flex-direction: column;  /* Pone el número arriba del mes */
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 30px;     /* Bordes bien redondeados como en tu diseño */
-    flex-shrink: 0;          /* Evita que se achique */
-}
-
-.dia-numero {
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1;          /* Quita el espacio extra arriba y abajo del número */
-}
-
-.mes-texto {
-    font-size: 15px;
-    font-weight: 500;
-    margin-top: 2px;
-}
-
-/* El contenedor de los textos */
-.info-actividad {
-    display: flex;
-    flex-direction: column;  /* Apila los textos en columna */
-    gap: 5px;                /* Separación entre cada renglón */
-}
-
-.titulo-actividad {
-    color: #1c6758;
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0 0 5px 0;
-    letter-spacing: 0.5px;
-}
-
-.detalle-actividad {
-    margin: 0;
-    font-size: 15px;
-    color: #343434;
-}
-
-/* El botón de "Ver más" */
-.btn-ver-mas {
-    background-color: #1c6758;
-    color: white;
-    border: none;
-    border-radius: 20px;     /* Forma de pastilla */
-    padding: 8px 25px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 5px;         /* Un poquito de aire arriba del botón */
-    align-self: flex-start;  /* Lo tira hacia la izquierda */
-    transition: background-color 0.3s ease;
-
-}
-
-.btn-ver-mas:hover {
-    background-color: #145044; /* Verde un poco más oscuro al pasar el mouse */
-}
-
-/* ====================================
-   TARJETA CAPACITACIONES
-   ==================================== */
-
-.tarjeta-capacitaciones {
-    background-color: #fbfbfb;
-    border-radius: 20px;
-    padding: 30px;
-    margin-top: 35px;
-    margin-left: 185px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
-    width: 520px; /* Se adapta perfectamente al ancho de la columna izquierda */
-    box-sizing: border-box; 
-}
-
-.titulo-capacitaciones {
-    color: #1c6758;
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-}
-
-/* La lista de cursos con tildes */
-.lista-cursos {
-    list-style: none; /* Le saca los puntitos feos a la lista */
-    padding: 0;
-    margin: 0 0 25px 0;
-}
-
-.curso-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    font-size: 15px;
-    color: #343434;
-    font-weight: 500;
-}
-
-.texto-optativos {
-    color: rgb(0, 0, 0);
-    font-size: 14px;
-    line-height: 1.4;
-    margin-left: 20px;
-
-}
-
-/* Botón blanco */
-.btn-cursos {
-    background-color: #1c6758;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 20px;
-    font-size: 13px;
-    font-weight: 700;
-    margin-top: 15px;
-    margin-left: 190px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-cursos:hover {
-    background-color: #e4e4e4; /* Gris clarito al pasar el mouse */
-}
-
-/*ACA REESCRIBI TODO EN COLUMNAS, ASIQUE SEGURAMENTE EN LOS ANTERIORES HAYA ESCRITO MUCHO A LO TONTO, IGNOREMOSLO OK*/
-
-/* 1. Configuramos la caja madre para que centre todo */
-.contenedor-principal { 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Para que las columnas no se estiren solas */
-    gap: 40px;               /* Separación perfecta entre columna izq y der */
-    padding: 40px;
-    max-width: 1200px;       /* Evita que se estire al infinito en teles o monitores gigantes */
-    margin: 0 auto;
-}
-
-/* 2. Reglas para la columna izquierda */
-.columna-izquierda {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;               /* Separación automática entre las 3 tarjetas */
-    width: 520px;            /* Obligamos a que TODO el lado izquierdo mida exactamente esto */
-}
-
-/* 3. Reglas para la columna derecha */
-.columna-derecha {
-    width: 594px;            /* El ancho que vos le habías dado al calendario */
-}
-
-/* 4. LIMPIEZA DE TARJETAS (LA CLAVE DEL ARREGLO) */
-/* Le decimos a todas las tarjetas que respeten el ancho de su columna y anulamos los márgenes fijos que las rompían */
-.tarjeta-personal, 
-.tarjeta-proxima-actividad, 
-.tarjeta-capacitaciones,
-.calendario-contenedor {
-    width: 100% !important; /* Que ocupen exactamente el ancho de la columna donde están */
-    margin: 0 !important;   /* Anula el margin: 60px y margin-left: 185px que tenías antes */
-    box-sizing: border-box; /* Evita que el padding las haga más anchas */
-}
 
 
 /* ====================================
-   TARJETA HISTORIAL (ABAJO DE TODO)
+   RESPONSIVE (CELULAR Y TABLET)
    ==================================== */
-.tarjeta-historial {
-    background-color: #f6f6f6;
-    border-radius: 40px;
-    width: 100%;
-    max-width: 1147px;      /* Mismo ancho total que el bloque superior para alinear perfecto */
-    padding: 40px 60px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+@media (max-width: 992px) {
+    .contenedor-perfil {
+        /* Pasamos a 1 sola columna que ocupa el 100% */
+        grid-template-columns: 1fr;
+        gap: 25px; /* Reducimos un poco el espacio entre tarjetas para el celu */
+        margin: 30px auto;
+
+        /* ¡REORDENAMOS PARA CELULAR! (Este es el orden que vos querías) */
+        grid-template-areas:
+            "perfil"
+            "proxima"
+            "calendario"
+            "cursos"
+            "historial";
+    }
+
+    /* Le sacamos el aire extra al historial porque en celu el gap ya es suficiente */
+    .tarjeta-historial {
+        margin: 0 !important;
+    }
+
+    .contenedor-perfil {
+        padding-top: 40px; /* Esto separa la primera tarjeta del menú/header */
+        padding-bottom: 40px;
+    }
 }
 
-.titulo-historial {
-    text-align: center;
-    color: #1c6758;
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 30px;
+@media (max-width: 480px) {
+    .grilla-dias {
+        gap: 2px; /* Reducimos el espacio entre números si la pantalla es muy estrecha */
+    }
+    .dia-caja {
+        font-size: 12px; /* Un poquito más chico para que no se desborde */
+    }
 }
 
-/* Contenedor de la línea de tiempo */
-.timeline-contenedor {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 25px; 
-    max-height: 380px; 
-    overflow-y: auto;  
-    padding-right: 15px; 
-    padding-left: 10px;
-}
-
-/* La línea gris vertical */
-.timeline-contenedor::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 41px; /* Centrado con los círculos */
-    width: 2px;
-    background-color: #747474;
-    z-index: 1;
-}
-
-/* Estilos de la barra de scroll (Scrollbar) */
-.timeline-contenedor::-webkit-scrollbar { width: 8px; }
-.timeline-contenedor::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
-
-/* Filas del historial */
-.timeline-item {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    position: relative;
-    z-index: 2;
-}
-
-/* Círculo gris */
-.circulo-icono {
-    width: 62px;
-    height: 62px;
-    background-color: #d9d9d9;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.circulo-icono img {
-    width: 30px;
-    height: auto;
-}
-
-/* Globo blanco */
-.timeline-tarjeta {
-    background-color: #ffffff;
-    border: 1px solid #d9d9d9;
-    border-radius: 8px;
-    padding: 15px 20px;
-    flex: 1; 
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05);
-    position: relative;
-}
-
-/* El "piquito" del globo (reemplaza las imágenes de Figma) */
-.timeline-tarjeta::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -6px; 
-    transform: translateY(-50%) rotate(45deg); 
-    width: 11px;
-    height: 11px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #d9d9d9; 
-    border-left: 1px solid #d9d9d9;   
-}
-
-/* Textos del historial */
-.evento-titulo {
-    color: #282828;
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    margin-top: auto;
-}
-
-.evento-detalle {
-    color: #747474;
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.icono-reloj {
-    width: 12px;
-    opacity: 0.7;
-}
-
-.tarjeta-historial {
-    width: 90%;          /* Ocupa un ancho razonable, por ejemplo el 90% de la pantalla */
-    max-width: 1147px;   /* Que no sea más ancho que tus otras columnas */
-    margin: 40px auto;   /* ¡ESTA ES LA CLAVE! El "auto" a los costados centra el bloque */
-}
-
-
-
+@media (max-width: 768px) {
 /* ====================================
-   FOOTER SEC
-   ==================================== */
-.footer-sec {
-    background-color: #acacac;
-    width: 100%;
-    border-top: 1px solid #d9d9d9;
-    margin-top: auto; /* ESTA ES LA MAGIA QUE LO EMPUJA AL FONDO */
-}
+       7. POPUP / MODAL RESPONSIVE
+       ==================================== */
+    
+    /* El contenedor blanco */
+    .modal-contenido {
+        width: 92% !important; /* Aprovecha el ancho del celular */
+        max-width: 420px;
+        max-height: 85vh; /* Evita que se salga de la pantalla */
+        overflow-y: auto; /* Scroll general si la pantalla del cel es muy enana */
+        padding: 30px 20px !important;
+        
+    }
 
-.footer-contenido {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-}
+    /* LA CLAVE: Forzamos a las columnas a apilarse */
+    .modal-columnas {
+        display: flex;
+        flex-direction: column; /* Cambia de horizontal a vertical */
+        gap: 30px; /* Separación ideal entre el bloque de arriba y el de abajo */
+    }
 
-.logo-footer {
-    display: flex;
-    width: 200px;
-    margin: auto;
-}
+    /* Aseguramos que el mapa de Google se adapte al ancho disponible */
+    .mapa-google {
+        width: 100% !important;
+        height: 180px; /* Un alto controlado para que no te robe toda la pantalla */
+        border-radius: 12px;
+        margin-top: 10px;
+    }
 
-.redes-sociales {
-    display: flex;
-    padding-left: 100px; /* Si ves que queda muy separado, podés achicar este valor */
-    gap: 15px;
-}
+    /* La lista de voluntarios abajo */
+    .lista-personas {
+        max-height: 220px; /* Altura fija para la lista de personas */
+        overflow-y: auto; /* Scroll interno solo para los nombres */
+        padding-right: 5px;
+        border: 1px solid #eee; /* Un borde sutil que enmarque la lista como en Figma */
+        border-radius: 15px;
+        background-color: #fff;
+        padding-top: 15px;
+    }
 
-.redes-sociales img {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
+    /* Ajustamos las filas de las personas adentro del modal */
+    .persona-item {
+        padding: 12px 15px !important;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f6f6f6;
+    }
 
-.redes-sociales img:hover {
-    transform: scale(1.1);
+    
+    .persona-item:last-child {
+        border-bottom: none; /* Le saca la línea al último de la lista */
+    }
+    
+    /* Corrección para el bloque del rol del Encargado en celular */
+    .rol-grupo {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Separa el texto "Encargado" del icono de info (i) */
+    }
+
+    .rol-encargado {
+        display: inline-block !important; /* Le devolvemos la vida por si se ocultó */
+        padding: 3px 8px;
+        border-radius: 6px;
+        
+        font-weight: 600;
+        white-space: nowrap; /* Evita que el texto se rompa en dos renglones */
+    }
+
+    .icono-info img {
+        width: 16px; /* Ajustamos el tamaño del circulito (i) para que no rompa la fila */
+        height: 16px;
+        display: block;
+    }
 }
