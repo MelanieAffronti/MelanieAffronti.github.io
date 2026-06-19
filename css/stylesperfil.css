@@ -118,7 +118,7 @@ body {
    ==================================== */
 
 .tarjeta-personal {
-     max-width: 500px; /* Ajustalo a la medida que te guste más, Figma suele usar 600-800px */
+    max-width: 600px; /* Ajustalo a la medida que te guste más, Figma suele usar 600-800px */
     margin: 40px auto !important; /* Centra la tarjeta en la pantalla */
     background-color: #fbfbfb;
     border-radius: 30px;
@@ -239,8 +239,7 @@ body {
     gap: 25px; /* Separación entre el cuadro verde y el texto */
     
     /* El "bozal" para que mida igual que la personal */
-    width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 20px auto; 
     box-sizing: border-box;
 }
@@ -527,7 +526,7 @@ body {
     
     /* El bozal idéntico a las tarjetas de la izquierda */
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 20px auto; 
     box-sizing: border-box;
 }
@@ -993,7 +992,7 @@ body {
 /* ====================================
    RESPONSIVE (CELULAR Y TABLET)
    ==================================== */
-@media (max-width: 992px) {
+@media (max-width: 775px) {
     .contenedor-perfil {
         /* Pasamos a 1 sola columna que ocupa el 100% */
         grid-template-columns: 1fr;
